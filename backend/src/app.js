@@ -5,7 +5,6 @@ var handle = exphbs.create({
   defaultLayout: 'main'
   });
 const bodyParser = require("body-parser");
-const Sequelize = require('sequelize');
   
 const port = 3000
 
