@@ -45,12 +45,14 @@ app.post('/add', function (req, res) {
       const jsonData = JSON.parse(data);
 
       // Verifica as credenciais
-      if (jsonData.name === username && jsonData.senha === password) {
+      if (jsonData.nome === username && jsonData.senha === password) {
+
         if (jsonData.tipo === "ADM"){
-          res.render('adm');
+          res.render('adm',{bruno: jsonData});
         }else{
           res.render('funcionario')
         }  
+
       } else {
         res.redirect('/login');
       }
