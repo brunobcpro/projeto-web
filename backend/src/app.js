@@ -21,6 +21,10 @@ app.use(bodyParser.json());
 
 // Rotas
 
+app.get('/', function (req, res) {
+  res.redirect('/login');
+});
+
 app.get('/login', function (req, res) {
   res.render('login');
 });
@@ -42,7 +46,11 @@ app.post('/add', function (req, res) {
 
       // Verifica as credenciais
       if (jsonData.name === username && jsonData.senha === password) {
-        res.send("Olá,"+username + "\n vc estuda na "+ jsonData.faculdade+ " e tem " + jsonData.idade + " anos");
+        if (jsonData.tipo === "ADM"){
+          res.render('adm');
+        }else{
+          res.render('funcionario')
+        }  
       } else {
         res.redirect('/login');
       }
