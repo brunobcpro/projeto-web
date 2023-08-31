@@ -1,33 +1,36 @@
 const express = require('express');
 const app = express();
-const exphbs = require('express-handlebars');
-const bodyParser = require("body-parser");
 const fs = require('fs'); 
+const cors = require('cors');
 
 const port = 3000;
 
-// Config
-const handle = exphbs.create({
-  defaultLayout: 'main'
-});
-
-// Template engine
-app.engine('handlebars', handle.engine);
-app.set('view engine', 'handlebars');
-
-// Body parser
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(cors()) //habilitando cors na nossa aplicacao
 
 // Rotas
 
 app.get('/', function (req, res) {
-  res.redirect('/login');
+  fs.readFile('bruno.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error('Erro ao ler o arquivo JSON:', err);
+      res.redirect('/login');
+      return;
+    }
+  
+    try {
+      const jsonData = JSON.parse(data);
+      res.send(jsonData);
+    } catch (parseError) {
+      console.error('Erro ao fazer parse do JSON:', parseError);
+    }
+  });
 });
 
+/*
 app.get('/login', function (req, res) {
   res.render('login');
 });
+*/
 
 app.post('/add', function (req, res) {
   const username = req.body.login;
