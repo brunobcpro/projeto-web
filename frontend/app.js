@@ -1,22 +1,18 @@
-const axios = require("axios")
-const exphbs = require('express-handlebars');
-const bodyParser = require("body-parser");
+const axios = require("axios");
+const cheerio = require("cheerio");
 
-// Config
-const handle = exphbs.create({
-    defaultLayout: 'main'
+// Fazendo uma solicitação GET para a rota localhost:3000
+axios.get("http://localhost:3000")
+  .then(response => {
+    const htmlContent = response.data;
+
+    // Carregando o HTML com o cheerio
+    const $ = cheerio.load(htmlContent);
+
+    // Exemplo: Obtendo o conteúdo de uma tag <h1>
+    const h1Content = $("h1").text();
+    console.log("Conteúdo do <h1>:", h1Content);
+  })
+  .catch(error => {
+    console.error("Erro ao buscar HTML:", error);
   });
-  
-  // Template engine
-  app.engine('handlebars', handle.engine);
-  app.set('view engine', 'handlebars');
-  
-  // Body parser
-  app.use(bodyParser.urlencoded({ extended: false }));
-  app.use(bodyParser.json());
-  
-
-
-axios.get('http://localhost:3000/')
-    .then(response => console.log(response))
-    .catch(error => console.log(error))
