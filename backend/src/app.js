@@ -3,6 +3,7 @@ const app = express();
 const fs = require('fs'); 
 const cors = require('cors');
 
+<<<<<<< Updated upstream
 const port = 3000;
 
 app.use(cors()) //habilitando cors na nossa aplicacao
@@ -65,6 +66,11 @@ app.post('/add', function (req, res) {
     }
   });
 });
+=======
+app.get('/', (req, res) => {
+  res.send('olá');  
+})
+>>>>>>> Stashed changes
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);

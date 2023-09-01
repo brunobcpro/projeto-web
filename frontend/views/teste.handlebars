@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <body>
   <h1>Lista de alunos estático</h1>
   <ul>
@@ -7,3 +8,24 @@
     <ol>Nome: Aluno 4</ol>
   </ul>
 </body>
+=======
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<script>
+    axios.get('http://localhost:3000/')
+      .then(response => {
+        const data = response.data;
+        const ul = document.querySelector('ul');
+  
+        for (const key in data) {
+          if (data.hasOwnProperty(key)) {
+            const li = document.createElement('li');
+            li.textContent = `${key}: ${data[key]}`;
+            ul.appendChild(li);
+          }
+        }
+      })
+      .catch(error => console.log(error));
+  </script>
+>>>>>>> Stashed changes
