@@ -3,14 +3,13 @@ const app = express();
 const fs = require('fs'); 
 const cors = require('cors');
 
-<<<<<<< Updated upstream
 const port = 3000;
 
 app.use(cors()) //habilitando cors na nossa aplicacao
 
 // Rotas
 
-app.get('/', function (req, res) {
+app.get('/bruno', function (req, res) {
   fs.readFile('bruno.json', 'utf8', (err, data) => {
     if (err) {
       console.error('Erro ao ler o arquivo JSON:', err);
@@ -66,11 +65,9 @@ app.post('/add', function (req, res) {
     }
   });
 });
-=======
 app.get('/', (req, res) => {
   res.send('olá');  
 })
->>>>>>> Stashed changes
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
