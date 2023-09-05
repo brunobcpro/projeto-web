@@ -2,14 +2,20 @@ const express = require('express');
 const app = express();
 const fs = require('fs'); 
 const cors = require('cors');
-
+app.use(cors()) 
 const port = 3000;
-
-app.use(cors()) //habilitando cors na nossa aplicacao
+const admin = require("./routes/admin")
+const funcionario = require("./routes/funcionario")
 
 // Rotas
 
-app.get('/bruno', function (req, res) {
+// Exemplo de rota de adm
+app.use("/admin", admin)
+
+// Exemplo de rota de funcionario
+app.use("/funcionario", funcionario)
+
+app.get('/', (req, res) => {
   fs.readFile('bruno.json', 'utf8', (err, data) => {
     if (err) {
       console.error('Erro ao ler o arquivo JSON:', err);
@@ -32,7 +38,7 @@ app.get('/login', function (req, res) {
 });
 */
 
-app.post('/add', function (req, res) {
+app.post('/add', (req, res) => {
   const username = req.body.login;
   const password = req.body.senha;
 
