@@ -1,0 +1,12 @@
+[
+  {
+    "nome": "Bruno",
+    "senha": "12345",
+    "tipo" : "1"
+  },
+  {
+    "nome": "Vinicius",
+    "senha": "abcde",
+    "tipo": "2"
+  }
+]  

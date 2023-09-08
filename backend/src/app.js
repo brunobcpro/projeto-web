@@ -1,76 +1,36 @@
-const express = require('express');
-const app = express();
-const fs = require('fs'); 
-const cors = require('cors');
-app.use(cors()) 
-const port = 3000;
-const admin = require("./routes/admin")
-const funcionario = require("./routes/funcionario")
-
-// Rotas
-
-// Exemplo de rota de adm
-app.use("/admin", admin)
-
-// Exemplo de rota de funcionario
-app.use("/funcionario", funcionario)
-
-app.get('/', (req, res) => {
-  fs.readFile('bruno.json', 'utf8', (err, data) => {
-    if (err) {
-      console.error('Erro ao ler o arquivo JSON:', err);
-      res.redirect('/login');
-      return;
-    }
+//importação de modulos
+  const express = require('express');
+  const app = express();
+  const fs = require('fs'); 
+  const port = 3000;
   
-    try {
-      const jsonData = JSON.parse(data);
-      res.send(jsonData);
-    } catch (parseError) {
-      console.error('Erro ao fazer parse do JSON:', parseError);
-    }
-  });
-});
+// Rotas
+    //importação dos arquivos rotas
+      const admin = require("./routes/admin")
+      const funcionario = require("./routes/funcionario")
+  // Exemplo de rota de adm
+    app.use("/admin", admin)
 
-/*
-app.get('/login', function (req, res) {
-  res.render('login');
-});
-*/
+  // Exemplo de rota de funcionario
+    app.use("/funcionario", funcionario)
+  // 
+    app.get('/', (req, res) => {
+      req
+      fs.readFile('usuarios.json', 'utf8', (err, data) => {
+        if (err) {
+          console.error('Erro ao ler o arquivo JSON:', err);
+          return;
+        }
+      
+        try {
+          const jsonData = JSON.parse(data);
+          res.send(jsonData);
+        } catch (parseError) {
+          console.error('Erro ao fazer parse do JSON:', parseError);
+        }
+      });
+    });
 
-app.post('/add', (req, res) => {
-  const username = req.body.login;
-  const password = req.body.senha;
-
-  // Lê o arquivo bruno.json
-  fs.readFile('bruno.json', 'utf8', (err, data) => {
-    if (err) {
-      console.error('Erro ao ler o arquivo JSON:', err);
-      res.redirect('/login');
-      return;
-    }
-
-    try {
-      const jsonData = JSON.parse(data);
-
-      // Verifica as credenciais
-      if (jsonData.nome === username && jsonData.senha === password) {
-
-        if (jsonData.tipo === "ADM"){
-          res.render('adm',{bruno: jsonData});
-        }else{
-          res.render('funcionario')
-        }  
-
-      } else {
-        res.redirect('/login');
-      }
-    } catch (parseError) {
-      console.error('Erro ao fazer parse do JSON:', parseError);
-      res.redirect('/login');
-    }
-  });
-});
 app.get('/', (req, res) => {
   res.send('olá');  
 })
