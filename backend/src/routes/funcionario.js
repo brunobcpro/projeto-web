@@ -1,12 +1,8 @@
 const express = require("express")
 const router = express.Router()
 
-router.get("/obrasemandamento", (req,res) => {
-    res.send([
-        "Residencia A",
-        "Prédio B",
-        "Praça C"
-    ])
+router.get("/pedidosdeinsumos", (req,res) => {
+    res.render("funcionario/pedidosdeinsumos")
 })
 
 module.exports = router
