@@ -1,11 +1,13 @@
 [
   {
-    "nome": "Bruno",
+    "id": "10",
+    "login": "Bruno",
     "senha": "12345",
     "tipo" : "1"
   },
   {
-    "nome": "Vinicius",
+    "id" : "20",
+    "login": "Vinicius",
     "senha": "abcde",
     "tipo": "2"
   }

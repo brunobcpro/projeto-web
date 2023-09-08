@@ -13,7 +13,7 @@
 
   // Exemplo de rota de funcionario
     app.use("/funcionario", funcionario)
-  // 
+  // Envio dos dados cadastro
     app.get('/', (req, res) => {
       req
       fs.readFile('usuarios.json', 'utf8', (err, data) => {
