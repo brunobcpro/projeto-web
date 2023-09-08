@@ -15,7 +15,6 @@
     app.use("/funcionario", funcionario)
   // Envio dos dados cadastro
     app.get('/', (req, res) => {
-      req
       fs.readFile('usuarios.json', 'utf8', (err, data) => {
         if (err) {
           console.error('Erro ao ler o arquivo JSON:', err);
@@ -24,7 +23,7 @@
       
         try {
           const jsonData = JSON.parse(data);
-          res.send(jsonData);
+          res.send(jsonData[0]);
         } catch (parseError) {
           console.error('Erro ao fazer parse do JSON:', parseError);
         }
