@@ -1,13 +1,34 @@
-//importação de modulos
+
+// Importação de modulos
 
   const express = require('express');
   const app = express();
   const fs = require('fs'); 
   const port = 3000;
+  const session = require("express-session")
+  const flash = require("connect-flash")
+
+// Configurações
+
+  // Sessões:
+    app.use(session({
+      secret: "projetoextensao",
+      resave: true,
+      saveUninitialized: true
+    }))
+    app.use(flash())
   
+  // Middleware
+    
+    app.use((req,res, next) => {
+      res.locals.success_msg = req.flash("success_msg")
+      res.locals.error = req.flash("error_msg")
+      next()
+    })
+    
 // Rotas
 
-  //importação das rotas
+  // Importação das rotas
 
     const admin = require("./routes/admin")
     const funcionario = require("./routes/funcionario")

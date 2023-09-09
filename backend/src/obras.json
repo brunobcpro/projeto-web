@@ -2,12 +2,16 @@
     {
     "obra": "Prédio A",
     "funcionarios": "60",
-    "previsao" : "Q3 2025"
+    "datadeinicio": "Maio de 2023",
+    "previsao" : "Q3 2025",
+    "localizacao": "Rosarinho"
     },
     {
     "obra": "Ponte B",
     "funcionarios": "100",
-    "previsao" : "Q2 2024"
+    "datadeinicio": "Setembro de 2023",
+    "previsao" : "Q2 2024",
+    "localizacao": "Boa Vista"
     }
     
 ]  

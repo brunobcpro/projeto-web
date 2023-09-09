@@ -1,10 +1,12 @@
 [
     {
     "nome": "Guilherme",
-    "profissao": "Engenheiro"
+    "cargo": "Engenheiro",
+    "salario": "R$ 8000,00"
     },
     {
     "nome": "Alysson",
-    "profissao": "Mestre de obras"
+    "cargo": "Mestre de obras",
+    "salario": "R$ 5000,00"
     }
 ]
