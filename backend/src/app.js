@@ -7,10 +7,10 @@
   const port = 3000;
   const session = require("express-session")
   const flash = require("connect-flash")
+  const cors = require('cors')
 
-// Configurações
+  app.use(cors());
 
-  // Sessões:
     app.use(session({
       secret: "projetoextensao",
       resave: true,
@@ -40,20 +40,12 @@
       app.use("/funcionario", funcionario)
 
 app.get('/', (req,res) => {
-  res.redirect("/home")
-})
-
-app.get('/home', (req,res) => {
-  res.render("Página Principal")
-})
-
-app.get('/login', (req,res) => {
-  res.render("Formulariodelogin")
+  res.redirect("/users")
 })
 
 // Leitura do arquivo JSON:
 
-  app.get('/', (req, res) => {
+  app.get('/users', (req, res) => {
     fs.readFile('usuarios.json', 'utf8', (err, data) => {
       if (err) {
         console.error('Erro ao ler o arquivo JSON:', err);
