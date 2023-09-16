@@ -1,12 +1,38 @@
 [
     {
+    "id": 1,   
     "nome": "Guilherme",
-    "cargo": "Engenheiro",
-    "salario": "R$ 8000,00"
+    "cargo": "Engenheiro Elétrico",
+    "salario": "R$ 8000,00",
+    "localdetrabalho": "Prédio A"
     },
     {
+    "id": 2, 
     "nome": "Alysson",
     "cargo": "Mestre de obras",
-    "salario": "R$ 5000,00"
+    "salario": "R$ 5000,00",
+    "localdetrabalho": "Ponte B"
+    },
+    {
+    "id": 3,     
+    "nome": "Caio",
+    "cargo": "Engenheiro Hidráulico",
+    "salario":"R$ 7500,00",
+    "localdetrabalho": "Prédio A"
+    },
+    {
+    "id": 4, 
+    "nome": "Aldyr",
+    "cargo": "Carpinteiro",
+    "salario":"R$ 4000,00",
+    "localdetrabalho": "Residencia D"
+    },
+    {
+    "id": 5, 
+    "nome": "Bruno",
+    "cargo": "Engenheiro Civil",
+    "salario":"R$ 7000,00",
+    "localdetrabalho": "Empresarial C"
     }
+    
 ]
