@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonApp, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonInput, IonButton } from '@ionic/react';
+import { IonContent, IonHeader, IonApp, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonInput, IonButton, IonAlert } from '@ionic/react';
 import './Home.css';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom'; 
@@ -10,6 +10,7 @@ const Home: React.FC = () => {
   const [password, setPassword] = useState('');
   const [type, setType] = useState(null);
   const [authenticated, setAuthenticated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
   const history = useHistory(); 
 
   useEffect(() => {
@@ -44,6 +45,8 @@ const Home: React.FC = () => {
       }else if(type === '2'){
         history.push('/func');
       }
+    }else{
+      setShowAlert(true);
     }
   };
 
@@ -79,6 +82,13 @@ const Home: React.FC = () => {
           </IonRow>
         </IonGrid>
       </IonContent>
+      <IonAlert
+          isOpen={showAlert}
+          onDidDismiss={() => setShowAlert(false)}
+          header="Credenciais inválidas"
+          message="Por favor, verifique seu login e senha e tente novamente."
+          buttons={['OK']}
+        />
     </IonApp>
   );
 };
