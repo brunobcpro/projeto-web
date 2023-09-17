@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Alunos Front</title>
+  <style>
+
+    body{
+      background-color: beige;
+    }
+
+    .flex{
+      display:flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .Lista {
+    font-weight: bold;
+    color: blue;
+    }
+
+  </style>
+</head>
+<body>
+  <div>
+    <h1 class="titulo">Tela de login</h1>
+  </div>
+  <div>
+    <ul id="minha-lista">
+      <!-- Os elementos <li> gerados pelo JavaScript serão adicionados aqui -->
+    </ul>
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<script>axios.post('http://localhost:3000/req', { nome: "Bruno", senha: "12345" })
+  .then(response => {
+    const data = response.data;
+    let ul = document.getElementById('minha-lista');
+    for (const key in data) {
+      if (data.hasOwnProperty(key)) {
+        let li = document.createElement('li');
+        li.textContent = `${key}: ${data[key]}`;
+        li.classList.add("Lista");
+        ul.appendChild(li);
+      }
+    }
+  })
+  .catch(error => console.log(error));
+</script>
+</html>
