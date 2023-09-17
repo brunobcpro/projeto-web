@@ -1,5 +1,6 @@
 const express = require("express")
 const router = express.Router()
+const functions = require('../functions')
 
 // Rota para página principal do admin
 
@@ -177,5 +178,41 @@ router.get("/registrodeinsumos", (req, res) => {
         return res.status(200).send(insumos);
     });
 });
+
+router.get('/obras/:id', (req, res) => {
+    const idDesejado = parseInt(req.params.id);
+  
+    functions.elementoPorId("obras.json", idDesejado, (err, elemento) => {
+      if (err) {
+        res.status(500).send('Erro ao buscar elemento.');
+      } else {
+        res.send(elemento);
+      }
+    });
+  });
+
+router.get('/obras/:id/andamento/:etapa', (req, res) => {
+    const idDesejado = parseInt(req.params.id);
+    const etapaDesejada = parseInt(req.params.etapa);
+
+    functions.elementoPorId("obras.json", idDesejado, (err, elemento) => {
+        if (err) {
+            res.status(500).send('Erro ao buscar o elemento');
+        } else {
+            if (elemento && elemento.andamentoObra) {
+                // Encontre a etapa desejada dentro do array de etapas
+                const etapaEncontrada = elemento.andamentoObra.find(etapa => etapa.etapa === etapaDesejada);
+                if (etapaEncontrada) {
+                    res.send(etapaEncontrada);
+                } else {
+                    res.status(404).send('Etapa não encontrada');
+                }
+        } else {
+            res.status(404).send('Elemento ou etapas não encontrados');
+        }
+        }
+    });
+});
+
 
 module.exports = router

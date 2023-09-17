@@ -3,32 +3,290 @@
     "id": 1,
     "obra": "Prédio A",
     "funcionarios": 100,
-    "datadeinicio": "Maio de 2023",
-    "previsao" : "Segundo Semestre de 2025",
+    "andamentoObra":
+     [
+          {
+            "etapa": 1,
+            "evento": "Preparação do Terreno",
+            "estimativaConclusao": 5,
+            "dataInicio" : "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 2,
+            "evento": "Fundação",
+            "estimativaConclusao": 4,
+            "dataInicio" : "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 3,
+            "evento": "Estrutura",
+            "estimativaConclusao": 3,
+            "dataInicio" : "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 4,
+            "evento": "Alvenaria e Revestimento",
+            "estimativaConclusao": 4,
+            "dataInicio" : "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 5,
+            "evento": "Instalações Elétricas e Hidráulicas",
+            "estimativaConclusao": 5,
+            "dataInicio" : "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 6,
+            "evento": "Acabamento Interno",
+            "estimativaConclusao": 4,
+            "dataInicio" : "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 7,
+            "evento": "Paisagismo e Áreas Comuns",
+            "estimativaConclusao": 3,
+            "dataInicio" : "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 8,
+            "evento": "Inspeção e Certificação",
+            "estimativaConclusao": 2,
+            "dataInicio" : "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 9,
+            "evento": "Entrega do Edifício",
+            "estimativaConclusao": 0.5,
+            "dataInicio" : "",
+            "tempoConclusao": ""
+          }
+      ]
+      ,
     "localizacao": "Rosarinho"
     },
     {
     "id": 2, 
     "obra": "Ponte B",
     "funcionarios": 60,
-    "datadeinicio": "Setembro de 2023",
-    "previsao" : "Segundo Semestre de 2024",
+    "andamentoObra" :
+    [
+          {
+            "etapa": 1,
+            "evento": "Preparação do Terreno",
+            "estimativaConclusao": 6,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 2,
+            "evento": "Fundação",
+            "estimativaConclusao": 5,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 3,
+            "evento": "Estrutura",
+            "estimativaConclusao": 4,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 4,
+            "evento": "Alvenaria e Revestimento",
+            "estimativaConclusao": 5,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 5,
+            "evento": "Instalações Elétricas e Hidráulicas",
+            "estimativaConclusao": 6,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 6,
+            "evento": "Acabamento Interno",
+            "estimativaConclusao": 5,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 7,
+            "evento": "Paisagismo e Áreas Comuns",
+            "estimativaConclusao": 4,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 8,
+            "evento": "Inspeção e Certificação",
+            "estimativaConclusao": 3,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 9,
+            "evento": "Entrega do Edifício",
+            "estimativaConclusao": 1,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          }
+    ]
+    ,
     "localizacao": "Boa Vista"
     },
     {
     "id": 3, 
     "obra": "Empresarial C",
     "funcionarios": 80,
-    "datadeinicio": "Novembro de 2023",
-    "previsao" : "Segundo Semestre de 2026",
+    "andamentoObra" :
+    [
+          {
+            "etapa": 1,
+            "evento": "Preparação do Terreno",
+            "estimativaConclusao": 6,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 2,
+            "evento": "Fundação",
+            "estimativaConclusao": 5,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 3,
+            "evento": "Estrutura",
+            "estimativaConclusao": 4,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 4,
+            "evento": "Alvenaria e Revestimento",
+            "estimativaConclusao": 5,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 5,
+            "evento": "Instalações Elétricas e Hidráulicas",
+            "estimativaConclusao": 6,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 6,
+            "evento": "Acabamento Interno",
+            "estimativaConclusao": 5,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 7,
+            "evento": "Paisagismo e Áreas Comuns",
+            "estimativaConclusao": 4,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 8,
+            "evento": "Inspeção e Certificação",
+            "estimativaConclusao": 3,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 9,
+            "evento": "Entrega do Edifício",
+            "estimativaConclusao": 1,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          }
+    ],
     "localizacao": "Boa Viagem"
     },
     {
     "id": 4, 
     "obra": "Residencia D",
     "funcionarios": 40,
-    "datadeinicio": "Setembro de 2023",
-    "previsao" : "Primeiro Semestre de 2025",
+    "andamentoObra" :
+    [
+          {
+            "etapa": 1,
+            "evento": "Preparação do Terreno",
+            "estimativaConclusao": 6,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 2,
+            "evento": "Fundação",
+            "estimativaConclusao": 5,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 3,
+            "evento": "Estrutura",
+            "estimativaConclusao": 4,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 4,
+            "evento": "Alvenaria e Revestimento",
+            "estimativaConclusao": 5,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 5,
+            "evento": "Instalações Elétricas e Hidráulicas",
+            "estimativaConclusao": 6,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 6,
+            "evento": "Acabamento Interno",
+            "estimativaConclusao": 5,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 7,
+            "evento": "Paisagismo e Áreas Comuns",
+            "estimativaConclusao": 4,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 8,
+            "evento": "Inspeção e Certificação",
+            "estimativaConclusao": 3,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 9,
+            "evento": "Entrega do Edifício",
+            "estimativaConclusao": 1,
+            "dataInicio": "",
+            "tempoConclusao": ""
+          }
+    ],
     "localizacao": "Caruaru"
     }    
 ]  

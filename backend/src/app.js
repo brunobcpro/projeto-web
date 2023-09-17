@@ -1,43 +1,29 @@
+const express = require('express');
+const app = express();
+const fs = require('fs');
+const port = 3000;
+const cors = require('cors');
+const functions = require('./functions.js');
 
-// Importação de modulos
-
-  const express = require('express')
-  const app = express()
-  const fs = require('fs')
-  const port = 3000;
-  const cors = require('cors')
-
-// Ativando módulos
-  app.use(cors())
-
-// Rotas
-
-  // Importação das rotas
-
-    const admin = require("./routes/admin")
-    const funcionario = require("./routes/funcionario")
-
-app.get('/', (req,res) => {
-  res.redirect("/users")
-})
-
-// Leitura do arquivo JSON:
+app.use(cors());
+//Routes
 
   app.get('/users', (req, res) => {
-    fs.readFile('usuarios.json', 'utf8', (err, data) => {
+    functions.arquivoJson("obras.json", (err, elemento) => {
       if (err) {
-        console.error('Erro ao ler o arquivo JSON:', err);
-        return;
-      }
-    
-      try {
-        const jsonData = JSON.parse(data);
-        res.send(jsonData);
-      } catch (parseError) {
-        console.error('Erro ao fazer parse do JSON:', parseError);
+        res.status(500).send('Erro ao buscar elemento.');
+      } else {
+        res.send(elemento);
       }
     });
   });
+
+// Importação das rotas
+
+  const admin = require("./routes/admin")
+  const funcionario = require("./routes/funcionario")
+ 
+  app.use('/admin', admin)
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
