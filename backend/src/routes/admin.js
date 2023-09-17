@@ -41,6 +41,13 @@ router.post("/novousuario", (req, res) => {
         }
 
         const usuarios = JSON.parse(data);
+
+        // Gera um novo ID
+        const novoId = usuarios.length > 0 ? Math.max(...usuarios.map(user => user.id)) + 1 : 1;
+
+        // Adiciona o novo ID ao objeto do novo usuário
+        novoUsuario.id = novoId;
+
         usuarios.push(novoUsuario);
 
         const novoConteudo = JSON.stringify(usuarios, null, 2);
@@ -111,6 +118,13 @@ router.post("/novofuncionario", (req, res) => {
         }
 
         const funcionarios = JSON.parse(data);
+
+        // Gera um novo ID
+        const novoId = funcionarios.length > 0 ? Math.max(...funcionarios.map(funcionario => funcionario.id)) + 1 : 1;
+
+        // Adiciona o novo ID ao objeto do novo funcionário
+        novoFuncionario.id = novoId;
+
         funcionarios.push(novoFuncionario);
 
         const novoConteudo = JSON.stringify(funcionarios, null, 2);
@@ -121,6 +135,41 @@ router.post("/novofuncionario", (req, res) => {
                 return res.status(500).send('Erro ao cadastrar novo funcionário');
             }
             return res.status(200).send('Novo funcionário cadastrado com sucesso');
+        });
+    });
+});
+
+// Rota para deletar um funcionário
+
+router.delete('/excluirfuncionario', (req, res) => {
+    const nomeFuncionarioParaExcluir = req.body.nome; // Assume-se que o nome é único
+
+    fs.readFile('funcionarios.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Erro ao ler o arquivo:', err);
+            return res.status(500).send('Erro ao excluir o funcionário');
+        }
+
+        let funcionarios = JSON.parse(data);
+
+        // Encontrar o índice do funcionário com o nome fornecido
+        const indiceFuncionarioParaExcluir = funcionarios.findIndex(funcionario => funcionario.nome === nomeFuncionarioParaExcluir);
+
+        if (indiceFuncionarioParaExcluir === -1) {
+            return res.status(404).send('Funcionário não encontrado');
+        }
+
+        // Remover o funcionário do array
+        funcionarios.splice(indiceFuncionarioParaExcluir, 1);
+
+        const novoConteudo = JSON.stringify(funcionarios, null, 2);
+
+        fs.writeFile('funcionarios.json', novoConteudo, 'utf8', (err) => {
+            if (err) {
+                console.error('Erro ao escrever no arquivo:', err);
+                return res.status(500).send('Erro ao excluir o funcionário');
+            }
+            return res.status(200).send('Funcionário excluído com sucesso');
         });
     });
 });
@@ -160,6 +209,41 @@ router.post("/novaobra", (req, res) => {
         });
     });
 });
+
+// Rota para deletar uma obra
+
+router.delete('/excluirusuario', (req, res) => {
+    const nomeObraParaExcluir = req.body.obra; // Assume-se que o nome é único
+
+    fs.readFile('obras.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Erro ao ler o arquivo:', err);
+            return res.status(500).send('Erro ao excluir a obra');
+        }
+
+        let obras = JSON.parse(data);
+
+        // Encontra o índice da obra com o nome fornecido
+        const indiceObraParaExcluir = obras.findIndex(obra => obra.obra === nomeObraParaExcluir);
+
+        if (indiceObraParaExcluir === -1) {
+            return res.status(404).send('Obra não encontrada');
+        }
+
+        // Remove a obra do array
+        obras.splice(indiceObraParaExcluir, 1);
+
+        const novoConteudo = JSON.stringify(obras, null, 2);
+
+        fs.writeFile('obras.json', novoConteudo, 'utf8', (err) => {
+            if (err) {
+                console.error('Erro ao escrever no arquivo:', err);
+                return res.status(500).send('Erro ao excluir a obra');
+            }
+            return res.status(200).send('Obra excluída com sucesso');
+        });
+    });
+})
 
 // Rota para controle de insumos, registra as solicitações dos funcionários
 
