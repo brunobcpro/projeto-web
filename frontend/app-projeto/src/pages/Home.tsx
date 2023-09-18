@@ -8,6 +8,7 @@ const Home: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [type, setType] = useState(null);
+  const [id, setId] = useState(null);
   const [authenticated, setAuthenticated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const history = useHistory(); 
@@ -23,6 +24,7 @@ const Home: React.FC = () => {
         if (user) {
           setAuthenticated(true);
           setType(user.tipo)
+          setId(user.id)
         } else {
           setAuthenticated(false);
         }
@@ -39,9 +41,9 @@ const Home: React.FC = () => {
   const handleLoginClick = () => {
     if (authenticated) {
       if (type === '1') {
-        history.push(`/adm?username=${username}`); // Redirecionar para /adm?username=username
+        history.push(`/adm?username=${username}&type=${type}&id=${id}`); 
       } else if (type === '2') {
-        history.push(`/func?username=${username}`); // Redirecionar para /func?username=username
+        history.push(`/func?username=${username}&type=${type}&id=${id}`); 
       }
     } else {
       setShowAlert(true);

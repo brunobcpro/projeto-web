@@ -24,6 +24,10 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import FuncionarioObras from './pages/FuncionarioObras';
+import AdmObras from './pages/AdmObras';
+import AdmInsumos from './pages/AdmInsumos';
+import FuncionarioInsumos from './pages/FuncionarioInsumos';
 
 setupIonicReact();
 
@@ -40,8 +44,20 @@ const App: React.FC = () => (
         <Route exact path="/adm">
           <Adm/>
         </Route>
+        <Route exact path="/adm/obras">
+          <AdmObras/>
+        </Route>
+        <Route exact path="/adm/insumos">
+          <AdmInsumos/>
+        </Route>
         <Route exact path="/func">
           <Funcionario/>
+        </Route>
+        <Route exact path="/func/obras">
+          <FuncionarioObras />
+        </Route>
+        <Route exact path="/func/insumos">
+          <FuncionarioInsumos/>
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>
