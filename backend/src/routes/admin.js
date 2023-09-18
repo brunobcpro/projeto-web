@@ -334,6 +334,20 @@ router.get("/registrodeinsumos", (req, res) => {
         });
     });
 
+    //rota para o acesso dos funcionarios de uma determinada obra
+    router.get('/obras/funcionarios/:id',(req,res) => {
+        const idDesejado = parseInt(req.params.id);
+
+        reading.arquivoJson("funcionarios.json",(err,elemento) => {
+            if(err){
+                res.status(500).send('Erro ao buscar o elemento.')
+            } else {
+                const elementosEncontrados = elemento.filter(elemento => elemento.idObra ===idDesejado)
+                res.send(elementosEncontrados)
+            }
+        })
+    })
+
 //rotas para acesso dos insumos
     
     //rota para acessar os insumos

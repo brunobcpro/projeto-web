@@ -24,6 +24,7 @@ app.use(cors());
   const funcionario = require("./routes/funcionario")
  
   app.use('/admin', admin)
+  app.use('/funcionario',funcionario)
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
