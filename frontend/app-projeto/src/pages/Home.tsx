@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonApp, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonInput, IonButton, IonAlert } from '@ionic/react';
-import './Home.css';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom'; 
 
@@ -38,18 +37,17 @@ const Home: React.FC = () => {
 
   //Evento para o botão login
   const handleLoginClick = () => {
-    
     if (authenticated) {
-      if (type === '1'){
-        history.push('/adm');
-      }else if(type === '2'){
-        history.push('/func');
+      if (type === '1') {
+        history.push(`/adm?username=${username}`); // Redirecionar para /adm?username=username
+      } else if (type === '2') {
+        history.push(`/func?username=${username}`); // Redirecionar para /func?username=username
       }
-    }else{
+    } else {
       setShowAlert(true);
     }
   };
-
+  
   return (
     <IonApp>
       <IonHeader>
