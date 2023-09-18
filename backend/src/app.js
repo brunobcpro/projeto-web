@@ -9,7 +9,7 @@ app.use(cors());
 //Routes
 
   app.get('/users', (req, res) => {
-    reading.arquivoJson("obras.json", (err, elemento) => {
+    reading.arquivoJson("usuarios.json", (err, elemento) => {
       if (err) {
         res.status(500).send('Erro ao buscar elemento.');
       } else {
