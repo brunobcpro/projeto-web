@@ -1,17 +1,34 @@
 [
     {
+    "id": 1,
     "obra": "Prédio A",
-    "funcionarios": "60",
+    "funcionarios": 100,
     "datadeinicio": "Maio de 2023",
-    "previsao" : "Q3 2025",
+    "previsao" : "Segundo Semestre de 2025",
     "localizacao": "Rosarinho"
     },
     {
+    "id": 2, 
     "obra": "Ponte B",
-    "funcionarios": "100",
+    "funcionarios": 60,
     "datadeinicio": "Setembro de 2023",
-    "previsao" : "Q2 2024",
+    "previsao" : "Segundo Semestre de 2024",
     "localizacao": "Boa Vista"
-    }
-    
+    },
+    {
+    "id": 3, 
+    "obra": "Empresarial C",
+    "funcionarios": 80,
+    "datadeinicio": "Novembro de 2023",
+    "previsao" : "Segundo Semestre de 2026",
+    "localizacao": "Boa Viagem"
+    },
+    {
+    "id": 4, 
+    "obra": "Residencia D",
+    "funcionarios": 40,
+    "datadeinicio": "Setembro de 2023",
+    "previsao" : "Primeiro Semestre de 2025",
+    "localizacao": "Caruaru"
+    }    
 ]  
