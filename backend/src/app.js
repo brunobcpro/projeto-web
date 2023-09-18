@@ -3,13 +3,13 @@ const app = express();
 const fs = require('fs');
 const port = 3000;
 const cors = require('cors');
-const functions = require('./functions.js');
+const reading = require('./functions/reading.js');
 
 app.use(cors());
 //Routes
 
   app.get('/users', (req, res) => {
-    functions.arquivoJson("obras.json", (err, elemento) => {
+    reading.arquivoJson("obras.json", (err, elemento) => {
       if (err) {
         res.status(500).send('Erro ao buscar elemento.');
       } else {

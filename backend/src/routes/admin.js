@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const functions = require('../functions')
+const reading = require('../functions/reading.js')
 
 // Rota para página principal do admin
 
@@ -245,11 +245,11 @@ router.delete('/excluirusuario', (req, res) => {
     });
 })
 
-// Rota para controle de insumos, registra as solicitações dos funcionários
 
+// Rota para controle de insumos, registra as solicitações dos funcionários
 router.get("/registrodeinsumos", (req,res) => {
     res.render("admin/registrodeinsumos")
-})
+});
 
 router.get("/registrodeinsumos", (req, res) => {
     fs.readFile('insumos.json', 'utf8', (err, data) => {
@@ -263,40 +263,127 @@ router.get("/registrodeinsumos", (req, res) => {
     });
 });
 
-router.get('/obras/:id', (req, res) => {
-    const idDesejado = parseInt(req.params.id);
-  
-    functions.elementoPorId("obras.json", idDesejado, (err, elemento) => {
-      if (err) {
-        res.status(500).send('Erro ao buscar elemento.');
-      } else {
-        res.send(elemento);
-      }
-    });
-  });
 
-router.get('/obras/:id/andamento/:etapa', (req, res) => {
-    const idDesejado = parseInt(req.params.id);
-    const etapaDesejada = parseInt(req.params.etapa);
+//rotas para acesso das obras
 
-    functions.elementoPorId("obras.json", idDesejado, (err, elemento) => {
+    //rota para acessar todas as obras
+    router.get('/obras', (req, res) => {
+        reading.arquivoJson("obras.json", (err, elemento) => {
         if (err) {
-            res.status(500).send('Erro ao buscar o elemento');
+            res.status(500).send('Erro ao buscar elemento.');
         } else {
-            if (elemento && elemento.andamentoObra) {
-                // Encontre a etapa desejada dentro do array de etapas
-                const etapaEncontrada = elemento.andamentoObra.find(etapa => etapa.etapa === etapaDesejada);
-                if (etapaEncontrada) {
-                    res.send(etapaEncontrada);
-                } else {
-                    res.status(404).send('Etapa não encontrada');
-                }
-        } else {
-            res.status(404).send('Elemento ou etapas não encontrados');
+            res.send(elemento);
         }
-        }
+        });
     });
-});
 
+    //rota para acessar a obra especidica
+    router.get('/obras/:id', (req, res) => {
+        const idDesejado = parseInt(req.params.id);
+    
+        reading.elementoPorId("obras.json", idDesejado, (err, elemento) => {
+        if (err) {
+            res.status(500).send('Erro ao buscar elemento.');
+        } else {
+            res.send(elemento);
+        }
+        });
+    });
+
+    //rota para acessar o andamento de cada etapa da obra
+    router.get('/obras/:id/andamento', (req, res) => {
+        const idDesejado = parseInt(req.params.id);
+
+        reading.elementoPorId("obras.json", idDesejado, (err, elemento) => {
+            if (err) {
+                res.status(500).send('Erro ao buscar o elemento');
+            } else {
+                if (elemento && elemento.andamentoObra) {
+                    // Encontre a etapa desejada dentro do array de etapas
+                    const etapaEncontrada = elemento.andamentoObra
+                    res.send(etapaEncontrada);
+                    
+            } else {
+                res.status(404).send('Elemento ou etapas não encontrados');
+            }
+            }
+        });
+    });
+
+    //rota para acessar o andamento de cada etapa da obra
+    router.get('/obras/:id/andamento/:etapa', (req, res) => {
+        const idDesejado = parseInt(req.params.id);
+        const etapaDesejada = parseInt(req.params.etapa);
+
+        reading.elementoPorId("obras.json", idDesejado, (err, elemento) => {
+            if (err) {
+                res.status(500).send('Erro ao buscar o elemento');
+            } else {
+                if (elemento && elemento.andamentoObra) {
+                    // Encontre a etapa desejada dentro do array de etapas
+                    const etapaEncontrada = elemento.andamentoObra.find(etapa => etapa.etapa === etapaDesejada);
+                    if (etapaEncontrada) {
+                        res.send(etapaEncontrada);
+                    } else {
+                        res.status(404).send('Etapa não encontrada');
+                    }
+            } else {
+                res.status(404).send('Elemento ou etapas não encontrados');
+            }
+            }
+        });
+    });
+
+//rotas para acesso dos insumos
+    
+    //rota para acessar os insumos
+    router.get('/insumos', (req, res) => {
+        reading.arquivoJson("insumos.json", (err, elemento) => {
+        if (err) {
+            res.status(500).send('Erro ao buscar elemento.');
+        } else {
+            res.send(elemento);
+        }
+        });
+    });
+
+    //rota para acessar o insumo por id
+    router.get('/insumos/:id', (req, res) => {
+        const idDesejado = parseInt(req.params.id);
+    
+        reading.elementoPorId("insumos.json", idDesejado, (err, elemento) => {
+        if (err) {
+            res.status(500).send('Erro ao buscar elemento.');
+        } else {
+            res.send(elemento);
+        }
+        });
+    });
+
+//rotas para acesso dos funcionarios
+
+    //rota para acesso de todos os funcionarios
+    router.get('/funcionarios', (req, res) => {
+        reading.arquivoJson("funcionarios.json", (err, elemento) => {
+        if (err) {
+            res.status(500).send('Erro ao buscar elemento.');
+        } else {
+            res.send(elemento);
+        }
+        });
+    });
+
+    //rota para acesso de um funcionario por id
+    router.get('/funcionarios/:id', (req, res) => {
+        const idDesejado = parseInt(req.params.id);
+    
+        reading.elementoPorId("funcionarios.json", idDesejado, (err, elemento) => {
+        if (err) {
+            res.status(500).send('Erro ao buscar elemento.');
+        } else {
+            res.send(elemento);
+        }
+        });
+    });
 
 module.exports = router

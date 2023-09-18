@@ -9,64 +9,55 @@
             "etapa": 1,
             "evento": "Preparação do Terreno",
             "estimativaConclusao": 5,
-            "dataInicio" : "",
-            "tempoConclusao": ""
+            "tempoConclusao": 7
           },
           {
             "etapa": 2,
             "evento": "Fundação",
             "estimativaConclusao": 4,
-            "dataInicio" : "",
-            "tempoConclusao": ""
+            "tempoConclusao": 5
           },
           {
             "etapa": 3,
             "evento": "Estrutura",
             "estimativaConclusao": 3,
-            "dataInicio" : "",
-            "tempoConclusao": ""
+            "tempoConclusao": 5
           },
           {
             "etapa": 4,
             "evento": "Alvenaria e Revestimento",
             "estimativaConclusao": 4,
-            "dataInicio" : "",
-            "tempoConclusao": ""
+            "tempoConclusao": 2
           },
           {
             "etapa": 5,
             "evento": "Instalações Elétricas e Hidráulicas",
             "estimativaConclusao": 5,
-            "dataInicio" : "",
-            "tempoConclusao": ""
+            "tempoConclusao": 4
           },
           {
             "etapa": 6,
             "evento": "Acabamento Interno",
             "estimativaConclusao": 4,
-            "dataInicio" : "",
-            "tempoConclusao": ""
+            "tempoConclusao": 6
           },
           {
             "etapa": 7,
             "evento": "Paisagismo e Áreas Comuns",
             "estimativaConclusao": 3,
-            "dataInicio" : "",
-            "tempoConclusao": ""
+            "tempoConclusao": 2
           },
           {
             "etapa": 8,
             "evento": "Inspeção e Certificação",
             "estimativaConclusao": 2,
-            "dataInicio" : "",
-            "tempoConclusao": ""
+            "tempoConclusao": 0
           },
           {
             "etapa": 9,
             "evento": "Entrega do Edifício",
             "estimativaConclusao": 0.5,
-            "dataInicio" : "",
-            "tempoConclusao": ""
+            "tempoConclusao": 0
           }
       ]
       ,
@@ -82,63 +73,54 @@
             "etapa": 1,
             "evento": "Preparação do Terreno",
             "estimativaConclusao": 6,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 2,
             "evento": "Fundação",
             "estimativaConclusao": 5,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 3,
             "evento": "Estrutura",
             "estimativaConclusao": 4,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 4,
             "evento": "Alvenaria e Revestimento",
             "estimativaConclusao": 5,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 5,
             "evento": "Instalações Elétricas e Hidráulicas",
             "estimativaConclusao": 6,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 6,
             "evento": "Acabamento Interno",
             "estimativaConclusao": 5,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 7,
             "evento": "Paisagismo e Áreas Comuns",
             "estimativaConclusao": 4,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 8,
             "evento": "Inspeção e Certificação",
             "estimativaConclusao": 3,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 9,
             "evento": "Entrega do Edifício",
             "estimativaConclusao": 1,
-            "dataInicio": "",
             "tempoConclusao": ""
           }
     ]
@@ -155,63 +137,54 @@
             "etapa": 1,
             "evento": "Preparação do Terreno",
             "estimativaConclusao": 6,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 2,
             "evento": "Fundação",
             "estimativaConclusao": 5,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 3,
             "evento": "Estrutura",
             "estimativaConclusao": 4,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 4,
             "evento": "Alvenaria e Revestimento",
             "estimativaConclusao": 5,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 5,
             "evento": "Instalações Elétricas e Hidráulicas",
             "estimativaConclusao": 6,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 6,
             "evento": "Acabamento Interno",
             "estimativaConclusao": 5,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 7,
             "evento": "Paisagismo e Áreas Comuns",
             "estimativaConclusao": 4,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 8,
             "evento": "Inspeção e Certificação",
             "estimativaConclusao": 3,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 9,
             "evento": "Entrega do Edifício",
             "estimativaConclusao": 1,
-            "dataInicio": "",
             "tempoConclusao": ""
           }
     ],
@@ -227,63 +200,54 @@
             "etapa": 1,
             "evento": "Preparação do Terreno",
             "estimativaConclusao": 6,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 2,
             "evento": "Fundação",
             "estimativaConclusao": 5,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 3,
             "evento": "Estrutura",
             "estimativaConclusao": 4,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 4,
             "evento": "Alvenaria e Revestimento",
             "estimativaConclusao": 5,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 5,
             "evento": "Instalações Elétricas e Hidráulicas",
             "estimativaConclusao": 6,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 6,
             "evento": "Acabamento Interno",
             "estimativaConclusao": 5,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 7,
             "evento": "Paisagismo e Áreas Comuns",
             "estimativaConclusao": 4,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 8,
             "evento": "Inspeção e Certificação",
             "estimativaConclusao": 3,
-            "dataInicio": "",
             "tempoConclusao": ""
           },
           {
             "etapa": 9,
             "evento": "Entrega do Edifício",
             "estimativaConclusao": 1,
-            "dataInicio": "",
             "tempoConclusao": ""
           }
     ],
