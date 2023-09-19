@@ -2,36 +2,36 @@ import { IonApp, IonHeader, IonIcon, IonLabel, IonTabBar, IonTabButton, IonTitle
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import {homeOutline, constructOutline, statsChartOutline} from 'ionicons/icons'
-import Logout from './Logout';
 
 const Tab: React.FC = () =>{
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const username = queryParams.get('username');
     const type = queryParams.get('type');
+    const id = queryParams.get('id');
     const history = useHistory();
   
     const RedirectObras = () => {
       if (type === '1'){
-      history.push(`/adm/obras?username=${username}&type=${type}`)
+      history.push(`/adm/obras?username=${username}&type=${type}&id=${id}`)
     } else if (type === '2'){
-      history.push(`/func/obras?username=${username}&type=${type}`)
+      history.push(`/func/obras?username=${username}&type=${type}&id=${id}`)
     }
   } 
   
     const RedirectInsumos = () =>{
       if (type === '1'){
-        history.push(`/adm/insumos?username=${username}&type=${type}`)
+        history.push(`/adm/insumos?username=${username}&type=${type}&id=${id}`)
       } else if (type === '2'){
-        history.push(`/func/insumos?username=${username}&type=${type}`)
+        history.push(`/func/insumos?username=${username}&type=${type}&id=${id}`)
       }
     }
   
     const RedirectHome = () => {
       if (type === '1'){
-        history.push(`/adm?username=${username}&type=${type}`)
+        history.push(`/adm?username=${username}&type=${type}&id=${id}`)
       } else if (type === '2'){
-        history.push(`/func?username=${username}&type=${type}`)
+        history.push(`/func?username=${username}&type=${type}&id=${id}`)
       }
     }
   

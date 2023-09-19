@@ -28,6 +28,7 @@ import FuncionarioObras from './pages/FuncionarioObras';
 import AdmObras from './pages/AdmObras';
 import AdmInsumos from './pages/AdmInsumos';
 import FuncionarioInsumos from './pages/FuncionarioInsumos';
+import ChangePass from './pages/MudarSenha';
 
 setupIonicReact();
 
@@ -58,6 +59,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/func/insumos">
           <FuncionarioInsumos/>
+        </Route>
+        <Route exact path="/alterar">
+          <ChangePass />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

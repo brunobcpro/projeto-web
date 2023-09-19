@@ -54,7 +54,7 @@ const Home: React.FC = () => {
     <IonApp>
       <IonHeader>
         <IonToolbar>
-          <IonTitle className='ion-text-center'>Bem vindo à FAMAS. Coloque suas credenciais para entrar em sua respectiva rota.</IonTitle>
+          <IonTitle className='ion-text-center'>Bem vindo à FAMA. Coloque suas credenciais para entrar em sua respectiva rota.</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className='ion-padding'>
@@ -80,6 +80,11 @@ const Home: React.FC = () => {
               <IonButton onClick={handleLoginClick}>Logar</IonButton>
             </IonCol>
           </IonRow>
+          <IonCol>
+            <IonRow>
+              <IonLabel>Deseja alterar sua senha? <a href='/alterar'>Clique aqui</a>.</IonLabel>
+            </IonRow>
+          </IonCol>
         </IonGrid>
       </IonContent>
       <IonAlert
