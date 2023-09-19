@@ -64,8 +64,8 @@ router.post("/novousuario", (req, res) => {
 
 // Rota para excluir um usuário do sistema
 
-router.delete('/excluirusuario', (req, res) => {
-    const nomeUsuarioParaExcluir = req.body.nome; // Assume-se que o nome é único
+router.delete('/excluirusuario/:id', (req, res) => {
+    const idUsuarioParaExcluir = parseInt(req.params.id); // Obtém o ID do parâmetro da URL
 
     fs.readFile('usuarios.json', 'utf8', (err, data) => {
         if (err) {
@@ -75,8 +75,8 @@ router.delete('/excluirusuario', (req, res) => {
 
         let usuarios = JSON.parse(data);
 
-        // Encontrar o índice do usuário com o nome fornecido
-        const indiceUsuarioParaExcluir = usuarios.findIndex(usuario => usuario.nome === nomeUsuarioParaExcluir);
+        // Encontrar o índice do usuário com o ID fornecido
+        const indiceUsuarioParaExcluir = usuarios.findIndex(usuario => usuario.id === idUsuarioParaExcluir);
 
         if (indiceUsuarioParaExcluir === -1) {
             return res.status(404).send('Usuário não encontrado');
@@ -141,8 +141,8 @@ router.post("/novofuncionario", (req, res) => {
 
 // Rota para deletar um funcionário
 
-router.delete('/excluirfuncionario', (req, res) => {
-    const nomeFuncionarioParaExcluir = req.body.nome; // Assume-se que o nome é único
+router.delete('/excluirfuncionario/:id', (req, res) => {
+    const idFuncionarioParaExcluir = parseInt(req.params.id); // Obtém o ID do parâmetro da URL
 
     fs.readFile('funcionarios.json', 'utf8', (err, data) => {
         if (err) {
@@ -152,8 +152,8 @@ router.delete('/excluirfuncionario', (req, res) => {
 
         let funcionarios = JSON.parse(data);
 
-        // Encontrar o índice do funcionário com o nome fornecido
-        const indiceFuncionarioParaExcluir = funcionarios.findIndex(funcionario => funcionario.nome === nomeFuncionarioParaExcluir);
+        // Encontrar o índice do funcionário com o ID fornecido
+        const indiceFuncionarioParaExcluir = funcionarios.findIndex(funcionario => funcionario.id === idFuncionarioParaExcluir);
 
         if (indiceFuncionarioParaExcluir === -1) {
             return res.status(404).send('Funcionário não encontrado');
@@ -212,8 +212,8 @@ router.post("/novaobra", (req, res) => {
 
 // Rota para deletar uma obra
 
-router.delete('/excluirusuario', (req, res) => {
-    const nomeObraParaExcluir = req.body.obra; // Assume-se que o nome é único
+router.delete('/excluirobra/:id', (req, res) => {
+    const idObraParaExcluir = parseInt(req.params.id); // Obtém o ID do parâmetro da URL
 
     fs.readFile('obras.json', 'utf8', (err, data) => {
         if (err) {
@@ -223,8 +223,8 @@ router.delete('/excluirusuario', (req, res) => {
 
         let obras = JSON.parse(data);
 
-        // Encontra o índice da obra com o nome fornecido
-        const indiceObraParaExcluir = obras.findIndex(obra => obra.obra === nomeObraParaExcluir);
+        // Encontrar o índice da obra com o ID fornecido
+        const indiceObraParaExcluir = obras.findIndex(obra => obra.id === idObraParaExcluir);
 
         if (indiceObraParaExcluir === -1) {
             return res.status(404).send('Obra não encontrada');
