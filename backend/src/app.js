@@ -8,6 +8,10 @@ const reading = require('./functions/reading.js');
 app.use(cors());
 //Routes
 
+  app.get('/', (req,res) =>{
+    res.redirect('/users')
+  })
+
   app.get('/users', (req, res) => {
     reading.arquivoJson("usuarios.json", (err, elemento) => {
       if (err) {

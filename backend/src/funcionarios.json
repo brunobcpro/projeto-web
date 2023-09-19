@@ -1,38 +1,38 @@
 [
   {
-  "id": 10,   
-  "nome": "Guilherme",
-  "cargo": "Engenheiro Elétrico",
-  "salario": "R$ 8000,00",
-  "idObra" : 1
+    "id": 1,
+    "nome": "Guilherme",
+    "cargo": "Engenheiro Elétrico",
+    "salario": "R$ 8000,00",
+    "idObra": 1
   },
   {
-  "id": 20, 
-  "nome": "Alysson",
-  "cargo": "Mestre de obras",
-  "salario": "R$ 5000,00",
-  "idObra" : 2
-},
-  {
-  "id": 30,     
-  "nome": "Caio",
-  "cargo": "Engenheiro Hidráulico",
-  "salario":"R$ 7500,00",
-  "idObra" : 1
+    "id": 2,
+    "nome": "Alysson",
+    "cargo": "Mestre de obras",
+    "salario": "R$ 5000,00",
+    "idObra": 2
   },
   {
-  "id": 40, 
-  "nome": "Aldyr",
-  "cargo": "Carpinteiro",
-  "salario":"R$ 4000,00",
-  "idObra" : 3
-},
+    "id": 3,
+    "nome": "Caio",
+    "cargo": "Engenheiro Hidráulico",
+    "salario": "R$ 7500,00",
+    "idObra": 1
+  },
   {
-  "id": 50, 
-  "nome": "Bruno",
-  "cargo": "Engenheiro Civil",
-  "idObra" : 3,
-  "salario":"R$ 7000,00"
+    "id": 4,
+    "nome": "Aldyr",
+    "cargo": "Carpinteiro",
+    "salario": "R$ 4000,00",
+    "idObra": 3
+  },
+  {
+    "id": 5,
+    "nome": "Bruno",
+    "cargo": "Engenheiro Civil",
+    "idObra": 3,
+    "salario": "R$ 7000,00"
   }
   
 ]
