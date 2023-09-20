@@ -54,48 +54,51 @@ const Home: React.FC = () => {
   
   return (
     <IonApp>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle className='ion-text-center'>Bem vindo à FAMA. Coloque suas credenciais para entrar em sua respectiva rota.</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent className='ion-padding'>
-        <IonGrid>
-          <IonRow>
-            <IonCol>
-              <IonItem>
-                <IonLabel position="floating">Login</IonLabel>
-                <IonInput type='text' value={username} onIonChange={(e) => setUsername(e.detail.value!)}></IonInput>
-              </IonItem>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol>
-              <IonItem>
-                <IonLabel position="floating">Senha</IonLabel>
-                <IonInput type='password' value={password} onIonChange={(e) => setPassword(e.detail.value!)}></IonInput>
-              </IonItem>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol>
-              <IonButton onClick={handleLoginClick}>Logar</IonButton>
-            </IonCol>
-          </IonRow>
-          <IonCol>
-            <IonRow>
-              <IonLabel>Deseja alterar sua senha? <a href='/alterar'>Clique aqui</a>.</IonLabel>
-            </IonRow>
-          </IonCol>
-        </IonGrid>
-      </IonContent>
-      <IonAlert
-          isOpen={showAlert}
-          onDidDismiss={() => setShowAlert(false)}
-          header="Credenciais inválidas"
-          message="Por favor, verifique seu login e senha e tente novamente."
-          buttons={['OK']}
-        />
+     <IonContent className="ion-padding" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', textAlign: 'center' }}>
+  <IonGrid style={{ maxWidth: '400px', width: '80%' }}>
+    <IonRow className="ion-align-items-center">
+      <IonCol>
+        <IonTitle>Bem vindo à FAMA.</IonTitle>
+        <IonLabel>Coloque suas credenciais para entrar em sua respectiva rota.</IonLabel>
+      </IonCol>
+    </IonRow>
+    <IonRow className="ion-align-items-center">
+      <IonCol>
+        <IonItem>
+          <IonLabel position="floating">Login</IonLabel>
+          <IonInput type='text' value={username} onIonChange={(e) => setUsername(e.detail.value!)}></IonInput>
+        </IonItem>
+      </IonCol>
+    </IonRow>
+    <IonRow className="ion-align-items-center">
+      <IonCol>
+        <IonItem>
+          <IonLabel position="floating">Senha</IonLabel>
+          <IonInput type='password' value={password} onIonChange={(e) => setPassword(e.detail.value!)}></IonInput>
+        </IonItem>
+      </IonCol>
+    </IonRow>
+    <IonRow className="ion-align-items-center">
+      <IonCol className="ion-text-center">
+        <IonButton onClick={handleLoginClick}>Logar</IonButton>
+      </IonCol>
+    </IonRow>
+    <IonRow className="ion-align-items-center">
+      <IonCol className="ion-text-center">
+        <IonLabel>Deseja alterar sua senha? <a href='/alterar'>Clique aqui</a>.</IonLabel>
+      </IonCol>
+    </IonRow>
+  </IonGrid>
+</IonContent>
+<IonAlert
+  isOpen={showAlert}
+  onDidDismiss={() => setShowAlert(false)}
+  header="Credenciais inválidas"
+  message="Por favor, verifique seu login e senha e tente novamente."
+  buttons={['OK']}
+/>
+
+
     </IonApp>
   );
 };
