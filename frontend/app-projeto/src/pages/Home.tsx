@@ -47,6 +47,8 @@ const Home: React.FC = () => {
       }
     } else {
       setShowAlert(true);
+      setPassword('');
+      setUsername('');
     }
   };
   

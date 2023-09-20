@@ -1,6 +1,11 @@
 [
+<<<<<<< HEAD
   {
     "id": 1,
+=======
+    {
+    "id": 10,
+>>>>>>> 9103328b86519dfbdd0fc0570de8f1ad3c43f3d9
     "obra": "Prédio A",
     "funcionarios": 100,
     "andamentoObra": [
@@ -60,9 +65,15 @@
       }
     ],
     "localizacao": "Rosarinho"
+<<<<<<< HEAD
   },
   {
     "id": 2,
+=======
+    },
+    {
+    "id": 20, 
+>>>>>>> 9103328b86519dfbdd0fc0570de8f1ad3c43f3d9
     "obra": "Ponte B",
     "funcionarios": 60,
     "andamentoObra": [
@@ -122,9 +133,15 @@
       }
     ],
     "localizacao": "Boa Vista"
+<<<<<<< HEAD
   },
   {
     "id": 3,
+=======
+    },
+    {
+    "id": 30, 
+>>>>>>> 9103328b86519dfbdd0fc0570de8f1ad3c43f3d9
     "obra": "Empresarial C",
     "funcionarios": 80,
     "andamentoObra": [
@@ -184,5 +201,73 @@
       }
     ],
     "localizacao": "Boa Viagem"
+<<<<<<< HEAD
   }
 ]
+=======
+    },
+    {
+    "id": 40, 
+    "obra": "Residencia D",
+    "funcionarios": 40,
+    "andamentoObra" :
+    [
+          {
+            "etapa": 1,
+            "evento": "Preparação do Terreno",
+            "estimativaConclusao": 6,
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 2,
+            "evento": "Fundação",
+            "estimativaConclusao": 5,
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 3,
+            "evento": "Estrutura",
+            "estimativaConclusao": 4,
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 4,
+            "evento": "Alvenaria e Revestimento",
+            "estimativaConclusao": 5,
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 5,
+            "evento": "Instalações Elétricas e Hidráulicas",
+            "estimativaConclusao": 6,
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 6,
+            "evento": "Acabamento Interno",
+            "estimativaConclusao": 5,
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 7,
+            "evento": "Paisagismo e Áreas Comuns",
+            "estimativaConclusao": 4,
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 8,
+            "evento": "Inspeção e Certificação",
+            "estimativaConclusao": 3,
+            "tempoConclusao": ""
+          },
+          {
+            "etapa": 9,
+            "evento": "Entrega do Edifício",
+            "estimativaConclusao": 1,
+            "tempoConclusao": ""
+          }
+    ],
+    "localizacao": "Caruaru"
+    }    
+]  
+>>>>>>> 9103328b86519dfbdd0fc0570de8f1ad3c43f3d9
