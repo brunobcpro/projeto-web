@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const reading = require('../functions/reading.js')
+const fs = require('fs')
 
 // Rota para página principal do admin
 
@@ -22,21 +23,28 @@ router.get("/quadrodefuncionarios", (req,res) => {
 
 // Rota para cadastro de um novo usuario do sistema
 
-router.get("/novousuario", (req,res) => {
-    res.render("admin/novousuario")
+router.get("/novoFuncionario", (req,res) => {
+    res.render("admin/novoFuncionario")
 })
 
-router.post("/novousuario", (req, res) => {
-    const novoUsuario = req.body;
+router.get("/novoFuncionario/:nome/:login/:senha/:salario/:cargo/:idObra", (req, res) => {
+    const nome = req.params.nome;
+    const login = req.params.login;
+    const senha = req.params.senha;
+    const salario = req.params.salario;
+    const cargo = req.params.cargo;
+    const idObra = parseInt(req.params.idObra);
+    let id;
 
     // Verifica se todos os campos obrigatórios estão presentes e não são vazios
-    if (!novoUsuario.nome || !novoUsuario.senha || !novoUsuario.tipo) {
+    if (!login || !senha || !salario || !cargo || !idObra || !nome) {
         return res.status(400).send('Todos os campos são obrigatórios');
     }
 
+    //importação do banco de dados usuarios e funcionarios
     fs.readFile('usuarios.json', 'utf8', (err, data) => {
         if (err) {
-            console.error('Erro ao ler o arquivo:', err);
+            console.error('Erro ao ler o arquivo de usuários:', err);
             return res.status(500).send('Erro ao cadastrar novo usuário');
         }
 
@@ -46,26 +54,119 @@ router.post("/novousuario", (req, res) => {
         const novoId = usuarios.length > 0 ? Math.max(...usuarios.map(user => user.id)) + 1 : 1;
 
         // Adiciona o novo ID ao objeto do novo usuário
-        novoUsuario.id = novoId;
+        id = novoId;
+
+        // Adição de usuario
+        const novoUsuario = {
+            nome: nome,
+            senha: senha,
+            tipo: "1",
+            id: id
+        }
 
         usuarios.push(novoUsuario);
 
-        const novoConteudo = JSON.stringify(usuarios, null, 2);
+        const novoConteudo1 = JSON.stringify(usuarios, null, 2);
 
-        fs.writeFile('usuarios.json', novoConteudo, 'utf8', (err) => {
+        fs.writeFile('usuarios.json', novoConteudo1, 'utf8', (err) => {
             if (err) {
-                console.error('Erro ao escrever no arquivo:', err);
+                console.error('Erro ao escrever no arquivo de usuários:', err);
                 return res.status(500).send('Erro ao cadastrar novo usuário');
             }
-            return res.status(200).send('Novo usuário cadastrado com sucesso');
+
+            // Adição de funcionario
+            fs.readFile('funcionarios.json', 'utf8', (err, elemento) => {
+                if (err) {
+                    console.error('Erro ao ler o arquivo de funcionários:', err);
+                    return res.status(500).send('Erro ao cadastrar novo funcionário');
+                }
+
+                const funcionarios = JSON.parse(elemento);
+
+                const novoFuncionario = {
+                    id: id,
+                    cargo: cargo,
+                    salario: salario,
+                    idObra: idObra,
+                    nome: nome
+                }
+                funcionarios.push(novoFuncionario);
+
+                const novoConteudo2 = JSON.stringify(funcionarios, null, 2);
+
+                fs.writeFile('funcionarios.json', novoConteudo2, 'utf8', (err) => {
+                    if (err) {
+                        console.error('Erro ao escrever no arquivo de funcionários:', err);
+                        return res.status(500).send('Erro ao cadastrar novo funcionário');
+                    }
+                    
+                    return res.status(200).send('Novo funcionário cadastrado com sucesso com ID ' + id);
+                });
+            });
         });
     });
 });
 
+
+// Rota para adicionar um adm ao sistema
+router.get("/novoAdm", (req,res) => {
+    res.render("admin/novoAdm")
+})
+
+router.get("/novoAdm/:nome/:login/:senha", (req, res) => {
+    const nome = req.params.nome
+    const login = req.params.login
+    const senha = req.params.senha
+    let id;
+
+    // Verifica se todos os campos obrigatórios estão presentes e não são vazios
+    if (!login || !senha || !nome ) {
+        return res.status(400).send('Todos os campos são obrigatórios');
+    }
+
+    //importação do banco de dados usuarios e funcionarios
+    fs.readFile('usuarios.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Erro ao ler o arquivo:', err);
+            return res.status(500).send('Erro ao cadastrar novo usuário');
+        }
+    
+    const usuarios = JSON.parse(data);
+
+
+    // Gera um novo ID
+    const novoId = usuarios.length > 0 ? Math.max(...usuarios.map(user => user.id)) + 1 : 1;
+
+    // Adiciona o novo ID ao objeto do novo usuário
+    id = novoId;
+
+    // Adição de usuario
+    const novoUsuario = {
+        nome: nome,
+        senha: senha,
+        tipo: "2",
+        id: id
+    }
+
+    usuarios.push(novoUsuario);
+
+    const novoConteudo1 = JSON.stringify(usuarios, null, 2);
+
+    fs.writeFile('usuarios.json', novoConteudo1, 'utf8', (err) => {
+        if (err) {
+            console.error('Erro ao escrever no arquivo:', err);
+            return res.status(500).send('Erro ao cadastrar novo usuário');
+        }
+        return res.status(200).send('Novo usuário cadastrado com sucesso com id ' + id);
+    });
+    });    
+});
+
+
 // Rota para excluir um usuário do sistema
 
-router.delete('/excluirusuario/:id', (req, res) => {
-    const idUsuarioParaExcluir = parseInt(req.params.id); // Obtém o ID do parâmetro da URL
+router.get('/excluirusuario/:id', (req, res) => {
+    const idUsuarioParaExcluir = parseInt(req.params.id);
 
     fs.readFile('usuarios.json', 'utf8', (err, data) => {
         if (err) {
@@ -75,27 +176,62 @@ router.delete('/excluirusuario/:id', (req, res) => {
 
         let usuarios = JSON.parse(data);
 
-        // Encontrar o índice do usuário com o ID fornecido
+        // Encontrar o índice do usuário com o nome fornecido
         const indiceUsuarioParaExcluir = usuarios.findIndex(usuario => usuario.id === idUsuarioParaExcluir);
 
         if (indiceUsuarioParaExcluir === -1) {
             return res.status(404).send('Usuário não encontrado');
         }
 
+        const tipoUsuarioParaExcluir = usuarios[indiceUsuarioParaExcluir].tipo;
+
         // Remover o usuário do array
         usuarios.splice(indiceUsuarioParaExcluir, 1);
 
-        const novoConteudo = JSON.stringify(usuarios, null, 2);
+        const novoConteudo1 = JSON.stringify(usuarios, null, 2);
 
-        fs.writeFile('usuarios.json', novoConteudo, 'utf8', (err) => {
+        fs.writeFile('usuarios.json', novoConteudo1, 'utf8', (err) => {
             if (err) {
                 console.error('Erro ao escrever no arquivo:', err);
                 return res.status(500).send('Erro ao excluir o usuário');
             }
-            return res.status(200).send('Usuário excluído com sucesso');
+
+            if (tipoUsuarioParaExcluir === "1") {
+                //excluir funcionario
+
+                fs.readFile('funcionarios.json', 'utf8', (err, elemento) => {
+                    if (err) {
+                        console.error('Erro ao ler o arquivo:', err);
+                        return res.status(500).send('Erro ao excluir o usuário');
+                    }
+
+                    const funcionarios = JSON.parse(elemento);
+
+                    const indiceFuncinarioParaExcluir = funcionarios.findIndex(funcionario => funcionario.id === idUsuarioParaExcluir);
+
+                    if (indiceFuncinarioParaExcluir === -1) {
+                        return res.status(404).send('Funcionário não encontrado');
+                    }
+
+                    funcionarios.splice(indiceFuncinarioParaExcluir, 1);
+
+                    const novoConteudo2 = JSON.stringify(funcionarios, null, 2);
+
+                    fs.writeFile('funcionarios.json', novoConteudo2, 'utf8', (err) => {
+                        if (err) {
+                            console.error('Erro ao escrever no arquivo:', err);
+                            return res.status(500).send('Erro ao excluir o funcionário');
+                        }
+                        return res.status(200).send('Funcionário excluído com sucesso');
+                    });
+                });
+            } else {
+                return res.status(200).send('Usuário excluído com sucesso');
+            }
         });
     });
 });
+
 
 // Rota para cadastro de um novo funcionario
 
@@ -103,7 +239,7 @@ router.get("/novofuncionario", (req,res) => {
     res.render("admin/novofuncionario")
 })
 
-router.post("/novofuncionario", (req, res) => {
+router.get("/novofuncionario", (req, res) => {
     const novoFuncionario = req.body;
 
     // Verifica se todos os campos obrigatórios estão presentes e não são vazios
@@ -135,41 +271,6 @@ router.post("/novofuncionario", (req, res) => {
                 return res.status(500).send('Erro ao cadastrar novo funcionário');
             }
             return res.status(200).send('Novo funcionário cadastrado com sucesso');
-        });
-    });
-});
-
-// Rota para deletar um funcionário
-
-router.delete('/excluirfuncionario/:id', (req, res) => {
-    const idFuncionarioParaExcluir = parseInt(req.params.id); // Obtém o ID do parâmetro da URL
-
-    fs.readFile('funcionarios.json', 'utf8', (err, data) => {
-        if (err) {
-            console.error('Erro ao ler o arquivo:', err);
-            return res.status(500).send('Erro ao excluir o funcionário');
-        }
-
-        let funcionarios = JSON.parse(data);
-
-        // Encontrar o índice do funcionário com o ID fornecido
-        const indiceFuncionarioParaExcluir = funcionarios.findIndex(funcionario => funcionario.id === idFuncionarioParaExcluir);
-
-        if (indiceFuncionarioParaExcluir === -1) {
-            return res.status(404).send('Funcionário não encontrado');
-        }
-
-        // Remover o funcionário do array
-        funcionarios.splice(indiceFuncionarioParaExcluir, 1);
-
-        const novoConteudo = JSON.stringify(funcionarios, null, 2);
-
-        fs.writeFile('funcionarios.json', novoConteudo, 'utf8', (err) => {
-            if (err) {
-                console.error('Erro ao escrever no arquivo:', err);
-                return res.status(500).send('Erro ao excluir o funcionário');
-            }
-            return res.status(200).send('Funcionário excluído com sucesso');
         });
     });
 });
@@ -212,8 +313,8 @@ router.post("/novaobra", (req, res) => {
 
 // Rota para deletar uma obra
 
-router.delete('/excluirobra/:id', (req, res) => {
-    const idObraParaExcluir = parseInt(req.params.id); // Obtém o ID do parâmetro da URL
+router.delete('/excluirusuario', (req, res) => {
+    const nomeObraParaExcluir = req.body.obra; // Assume-se que o nome é único
 
     fs.readFile('obras.json', 'utf8', (err, data) => {
         if (err) {
@@ -223,8 +324,8 @@ router.delete('/excluirobra/:id', (req, res) => {
 
         let obras = JSON.parse(data);
 
-        // Encontrar o índice da obra com o ID fornecido
-        const indiceObraParaExcluir = obras.findIndex(obra => obra.id === idObraParaExcluir);
+        // Encontra o índice da obra com o nome fornecido
+        const indiceObraParaExcluir = obras.findIndex(obra => obra.obra === nomeObraParaExcluir);
 
         if (indiceObraParaExcluir === -1) {
             return res.status(404).send('Obra não encontrada');
