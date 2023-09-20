@@ -24,6 +24,12 @@
     "tipo": "1"
   },
   {
+    "id": 5,
+    "nome": "Bruno",
+    "senha": "12345",
+    "tipo": "1"
+  },
+  {
     "id": 6,
     "nome": "Vinicius",
     "senha": "222222",
