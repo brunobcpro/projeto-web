@@ -49,7 +49,7 @@ const App: React.FC = () => (
           <AdmObras/>
         </Route>
         <Route exact path="/adm/insumos">
-          <AdmInsumos nome={''} unidade={''} estoque={0} id={0}/>
+          <AdmInsumos />
         </Route>
         <Route exact path="/func">
           <Funcionario/>
