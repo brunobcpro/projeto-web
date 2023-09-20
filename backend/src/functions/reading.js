@@ -32,4 +32,4 @@ function elementoPorId(arquivo, idDesejado, callback) {
   });
 }
 
-module.exports = { elementoPorId, arquivoJson  };
+module.exports = { elementoPorId, arquivoJson };

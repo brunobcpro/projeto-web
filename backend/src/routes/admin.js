@@ -282,11 +282,13 @@ router.get("/novaobra", (req,res) => {
     res.render("admin/novaobra")
 })
 
-router.post("/novaobra", (req, res) => {
-    const novaObra = req.body;
+router.get("/novaobra1", (req, res) => {
+    
+    // Captura o input
+    let novaObra = req.body
 
     // Verifica se todos os campos obrigatórios estão presentes e não são vazios
-    if (!novaObra.obra || !novaObra.funcionarios || !novaObra.datadeinicio || !novaObra.previsao || !novaObra.localizacao) {
+    if (!novaObra.obra || !novaObra.funcionarios || !novaObra.andamento || !novaObra.localizacao) {
         return res.status(400).send('Todos os campos são obrigatórios');
     }
 
@@ -297,7 +299,17 @@ router.post("/novaobra", (req, res) => {
         }
 
         const obras = JSON.parse(data);
+        
+        // Gera um novo ID
+        const novoId = obras.length > 0 ? Math.max(...obras.map(obra => obra.id)) + 1 : 1;
+
+        // Adiciona o novo ID ao objeto do novo usuário
+        id = novoId;
+
+        novaObra.id = id;
+
         obras.push(novaObra);
+        console.log(obras)
 
         const novoConteudo = JSON.stringify(obras, null, 2);
 
@@ -313,8 +325,8 @@ router.post("/novaobra", (req, res) => {
 
 // Rota para deletar uma obra
 
-router.delete('/excluirusuario', (req, res) => {
-    const nomeObraParaExcluir = req.body.obra; // Assume-se que o nome é único
+router.delete('/excluirObra/:id', (req, res) => {
+    const idObraParaExcluir = parseInt(req.body.id); // Assume-se que o nome é único
 
     fs.readFile('obras.json', 'utf8', (err, data) => {
         if (err) {
@@ -325,7 +337,7 @@ router.delete('/excluirusuario', (req, res) => {
         let obras = JSON.parse(data);
 
         // Encontra o índice da obra com o nome fornecido
-        const indiceObraParaExcluir = obras.findIndex(obra => obra.obra === nomeObraParaExcluir);
+        const indiceObraParaExcluir = obras.findIndex(obra => obra.id === idObraParaExcluir);
 
         if (indiceObraParaExcluir === -1) {
             return res.status(404).send('Obra não encontrada');
