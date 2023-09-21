@@ -31,7 +31,7 @@ const CompObras: React.FC<Obras> = () => {
         const urlFuncionarios = "http://localhost:3000/admin/funcionarios"
 
         if (tipo === "2") {
-          urlObras = `http://localhost:3000/admin/obras/${id}`
+          urlObras = "http://localhost:3000/admin/obras/${id}"
         }
 
         const [obrasResponse, funcionariosResponse] = await Promise.all([

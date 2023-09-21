@@ -3,13 +3,13 @@
     "id": 1,
     "nome": "Guilherme",
     "senha": "333333",
-    "tipo": "2"
+    "tipo": "1"
   },
   {
     "id": 2,
     "nome": "Alysson",
     "senha": "444444",
-    "tipo": "2"
+    "tipo": "1"
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "id": 4,
     "nome": "Aldyr",
     "senha": "555555",
-    "tipo": "2"
+    "tipo": "1"
   },
   {
     "id": 5,
@@ -36,9 +36,9 @@
     "tipo": "1"
   },
   {
-  "id": 7,
+  "id": 20,
   "nome": "Marcus",
   "senha": "777777",
-  "tipo": "1"
+  "tipo": "2"
   }
 ]
