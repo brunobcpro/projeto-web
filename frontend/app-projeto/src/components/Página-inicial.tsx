@@ -76,7 +76,7 @@ const Start: React.FC = () => {
     }
   }
   
-  const redirectExlcuir = () => {
+  const redirectExcluir = () => {
     history.push(`/adm/excluir?username=${username}&type=${type}&id=${id}`)
   }
   return (
@@ -87,25 +87,34 @@ const Start: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonInput type='text' placeholder='Nome do adm' value={nomeAdm} onIonChange={(e) => setNomeAdm(e.detail.value!)} />
-        <IonInput type='text' placeholder='Login do adm' value={loginAdm} onIonChange={(e) => setLoginAdm(e.detail.value!)} />
-        <IonInput type='text' placeholder='Senha do adm' value={senhaAdm} onIonChange={(e) => setSenhaAdm(e.detail.value!)} />
-        <IonButton onClick={handleRegistroAdm}>Registrar Administrador</IonButton>
-
-        <IonInput type='text' placeholder='Nome do funcionário' value={nomeFunc} onIonChange={(e) => setNomeFunc(e.detail.value!)}></IonInput>
-        <IonInput type='text' placeholder='Login do funcionário' value={loginFunc} onIonChange={(e) => setLoginFunc(e.detail.value!)}></IonInput>
-        <IonInput type='text' placeholder='Senha do funcionário' value={senhaFunc} onIonChange={(e) => setSenhaFunc(e.detail.value!)}></IonInput>
-        <IonInput type='text' placeholder='Cargo do funcionário' value={cargo} onIonChange={(e) => setCargo(e.detail.value!)}/>
-        <IonInput type='text' placeholder='Salário do funcionário' value={salario} onIonChange={(e) => setSalario(e.detail.value!)}></IonInput>
-        <IonInput type='text' placeholder='Id da obra do funcionário' value={idObra} onIonChange={(e) => setIdObra(e.detail.value!)}></IonInput>
-        <IonGrid>
-          <IonCol>
-            <IonRow>
+        <IonGrid className="ion-text-center">
+          <IonRow>
+            <IonCol>
+              <IonInput type='text' placeholder='Nome do adm' value={nomeAdm} onIonChange={(e) => setNomeAdm(e.detail.value!)} />
+              <IonInput type='text' placeholder='Login do adm' value={loginAdm} onIonChange={(e) => setLoginAdm(e.detail.value!)} />
+              <IonInput type='text' placeholder='Senha do adm' value={senhaAdm} onIonChange={(e) => setSenhaAdm(e.detail.value!)} />
+              <IonButton onClick={handleRegistroAdm}>Registrar Administrador</IonButton>
+            </IonCol>
+          </IonRow>
+          <IonRow>
+            <IonCol>
+              <IonInput type='text' placeholder='Nome do funcionário' value={nomeFunc} onIonChange={(e) => setNomeFunc(e.detail.value!)}></IonInput>
+              <IonInput type='text' placeholder='Login do funcionário' value={loginFunc} onIonChange={(e) => setLoginFunc(e.detail.value!)}></IonInput>
+              <IonInput type='text' placeholder='Senha do funcionário' value={senhaFunc} onIonChange={(e) => setSenhaFunc(e.detail.value!)}></IonInput>
+              <IonInput type='text' placeholder='Cargo do funcionário' value={cargo} onIonChange={(e) => setCargo(e.detail.value!)}/>
+              <IonInput type='text' placeholder='Salário do funcionário' value={salario} onIonChange={(e) => setSalario(e.detail.value!)}></IonInput>
+              <IonInput type='text' placeholder='Id da obra do funcionário' value={idObra} onIonChange={(e) => setIdObra(e.detail.value!)}></IonInput>
               <IonButton onClick={handleRegistroFunc}>Registrar funcionário</IonButton>
+<<<<<<< Updated upstream
               <IonButton onClick={redirectExlcuir}>Excluir usuários</IonButton>
               <Logout />
             </IonRow>
           </IonCol>
+=======
+              <IonButton onClick={redirectExcluir}>Excluir usuários</IonButton>
+            </IonCol>
+          </IonRow>
+>>>>>>> Stashed changes
         </IonGrid>
       </IonContent>
       <Tab />

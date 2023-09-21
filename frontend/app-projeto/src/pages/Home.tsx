@@ -58,6 +58,7 @@ const Home: React.FC = () => {
   <IonGrid style={{ maxWidth: '400px', width: '80%' }}>
     <IonRow className="ion-align-items-center">
       <IonCol>
+      <img src="/assets/icon/icon.png" alt="icon.png" style={{ maxWidth: '100%', marginBottom: '20px' }} />
         <IonTitle>Bem vindo à FAMA.</IonTitle>
         <IonLabel>Coloque suas credenciais para entrar em sua respectiva rota.</IonLabel>
       </IonCol>
