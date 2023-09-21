@@ -4,8 +4,8 @@ const fs = require('fs');
 const port = 3000;
 const cors = require('cors');
 const reading = require('./functions/reading.js');
-
 app.use(cors());
+
 //Routes
 
   app.get('/', (req,res) =>{

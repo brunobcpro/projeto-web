@@ -1,19 +1,17 @@
 const express = require("express")
 const router = express.Router()
 const reading = require('../functions/reading.js')
-const fs = require('fs')
-const bodyParser = require('body-parser')
+const fs = require('fs');
+const { parse } = require("path");
 
-router.use(bodyParser.urlencoded({ extended: true }));
-router.use(bodyParser.json());
 
-router.get("/novoFuncionario/:nome/:login/:senha/:salario/:cargo/:idObra", (req, res) => {
-    const nome = req.params.nome;
-    const login = req.params.login;
-    const senha = req.params.senha;
-    const salario = req.params.salario;
-    const cargo = req.params.cargo;
-    const idObra = parseInt(req.params.idObra);
+router.post("/novoFuncionario", (req, res) => {
+    const nome = req.body.nome;
+    const login = req.body.login;
+    const senha = req.body.senha;
+    const salario = req.body.salario;
+    const cargo = req.body.cargo;
+    const idObra = parseInt(req.body.idObra);
     let id;
 
     // Verifica se todos os campos obrigatórios estão presentes e não são vazios
@@ -87,11 +85,10 @@ router.get("/novoFuncionario/:nome/:login/:senha/:salario/:cargo/:idObra", (req,
     });
 });
 
-
 router.post("/novoAdm", (req, res) => {
-    const nome = req.body.nome;
-    const login = req.body.login;
-    const senha = req.body.senha;
+    const nome = req.body.nome
+    const login = req.body.login
+    const senha = req.body.senha
     let id;
 
     // Verifica se todos os campos obrigatórios estão presentes e não são vazios
@@ -106,41 +103,41 @@ router.post("/novoAdm", (req, res) => {
             return res.status(500).send('Erro ao cadastrar novo usuário');
         }
     
-        const usuarios = JSON.parse(data);
+    const usuarios = JSON.parse(data);
 
-        // Gera um novo ID
-        const novoId = usuarios.length > 0 ? Math.max(...usuarios.map(user => user.id)) + 1 : 1;
 
-        // Adiciona o novo ID ao objeto do novo usuário
-        id = novoId;
+    // Gera um novo ID
+    const novoId = usuarios.length > 0 ? Math.max(...usuarios.map(user => user.id)) + 1 : 1;
 
-        // Adição de usuario
-        const novoUsuario = {
-            nome: nome,
-            senha: senha,
-            tipo: "2",
-            id: id
+    // Adiciona o novo ID ao objeto do novo usuário
+    id = novoId;
+
+    // Adição de usuario
+    const novoUsuario = {
+        nome: nome,
+        senha: senha,
+        tipo: "2",
+        id: id
+    }
+
+    usuarios.push(novoUsuario);
+
+    const novoConteudo1 = JSON.stringify(usuarios, null, 2);
+
+    fs.writeFile('usuarios.json', novoConteudo1, 'utf8', (err) => {
+        if (err) {
+            console.error('Erro ao escrever no arquivo:', err);
+            return res.status(500).send('Erro ao cadastrar novo usuário');
         }
-
-        usuarios.push(novoUsuario);
-
-        const novoConteudo1 = JSON.stringify(usuarios, null, 2);
-
-        fs.writeFile('usuarios.json', novoConteudo1, 'utf8', (err) => {
-            if (err) {
-                console.error('Erro ao escrever no arquivo:', err);
-                return res.status(500).send('Erro ao cadastrar novo usuário');
-            }
-            return res.status(200).send('Novo usuário cadastrado com sucesso com id ' + id);
-        });
+        return res.status(200).send('Novo usuário cadastrado com sucesso com id ' + id);
+    });
     });    
 });
 
-
 // Rota para excluir um usuário do sistema
 
-router.get('/excluirusuario/:id', (req, res) => {
-    const idUsuarioParaExcluir = parseInt(req.params.id);
+router.delete('/excluirusuario/:id', (req, res) => {
+    const idUsuarioParaExcluir = parseInt(req.body.id);
 
     fs.readFile('usuarios.json', 'utf8', (err, data) => {
         if (err) {
@@ -207,56 +204,7 @@ router.get('/excluirusuario/:id', (req, res) => {
 });
 
 
-// Rota para cadastro de um novo funcionario
-
-router.get("/novofuncionario", (req,res) => {
-    res.render("admin/novofuncionario")
-})
-
-router.post("/novofuncionario", (req, res) => {
-    
-    const novoFuncionario = req.body;
-
-
-    // Verifica se todos os campos obrigatórios estão presentes e não são vazios
-    if (!novoFuncionario.nome || !novoFuncionario.cargo || !novoFuncionario.salario) {
-        return res.status(400).send('Todos os campos são obrigatórios');
-    }
-
-    fs.readFile('funcionarios.json', 'utf8', (err, data) => {
-        if (err) {
-            console.error('Erro ao ler o arquivo:', err);
-            return res.status(500).send('Erro ao cadastrar novo funcionário');
-        }
-
-        const funcionarios = JSON.parse(data);
-
-        // Gera um novo ID
-        const novoId = funcionarios.length > 0 ? Math.max(...funcionarios.map(funcionario => funcionario.id)) + 1 : 1;
-
-        // Adiciona o novo ID ao objeto do novo funcionário
-        novoFuncionario.id = novoId;
-
-        funcionarios.push(novoFuncionario);
-
-        const novoConteudo = JSON.stringify(funcionarios, null, 2);
-
-        fs.writeFile('funcionarios.json', novoConteudo, 'utf8', (err) => {
-            if (err) {
-                console.error('Erro ao escrever no arquivo:', err);
-                return res.status(500).send('Erro ao cadastrar novo funcionário');
-            }
-            return res.status(200).send('Novo funcionário cadastrado com sucesso');
-        });
-    });
-});
-
-
 // Rota para cadastro de uma nova obra 
-
-router.get("/novaobra", (req,res) => {
-    res.render("admin/novaobra")
-})
 
 router.post("/novaobra", (req, res) => {
     
@@ -285,7 +233,6 @@ router.post("/novaobra", (req, res) => {
         novaObra.id = id;
 
         obras.push(novaObra);
-        console.log(obras)
 
         const novoConteudo = JSON.stringify(obras, null, 2);
 
@@ -301,8 +248,8 @@ router.post("/novaobra", (req, res) => {
 
 // Rota para deletar uma obra
 
-router.get('/excluirObra/:id', (req, res) => {
-    const idObraParaExcluir = parseInt(req.params.id); // Assume-se que o nome é único
+router.delete('/excluirObra/:id', (req, res) => {
+    const idObraParaExcluir = parseInt(req.body.id); // Assume-se que o nome é único
 
     fs.readFile('obras.json', 'utf8', (err, data) => {
         if (err) {
@@ -334,14 +281,8 @@ router.get('/excluirObra/:id', (req, res) => {
     });
 })
 
-
-// Rota para controle de insumos, registra as solicitações dos funcionários
-router.get("/registrodeinsumos", (req,res) => {
-    res.render("admin/registrodeinsumos")
-});
-
-router.get("/registrodeinsumos", (req, res) => {
-    fs.readFile('insumos.json', 'utf8', (err, data) => {
+router.get("/pedidos", (req, res) => {
+    fs.readFile('pedidos.json', 'utf8', (err, data) => {
         if (err) {
             console.error('Erro ao ler o arquivo:', err);
             return res.status(500).send('Erro ao acessar controle de insumos');
@@ -352,6 +293,75 @@ router.get("/registrodeinsumos", (req, res) => {
     });
 });
 
+
+router.delete("/fornerceInsumos/:idPedido", (req, res) => {
+    const idPedido = parseInt(req.body.idPedido);
+
+    fs.readFile('pedidos.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Erro ao ler o arquivo:', err);
+            return res.status(500).send('Erro ao acessar controle de insumos');
+        }
+
+        const pedidos = JSON.parse(data);
+        console.log(pedidos)
+        const pedidoDesejado = pedidos.find(pedido => pedido.idPedido === idPedido); // Usando idPedido da URL
+        if (!pedidoDesejado) {
+            return res.status(404).send('Pedido não encontrado');
+        }
+
+        fs.readFile('insumos.json', 'utf8', (err, elemento) => {
+            if (err) {
+                console.error('Erro ao ler o arquivo:', err);
+                return res.status(500).send('Erro ao acessar controle de insumos');
+            }
+
+            const insumos = JSON.parse(elemento);
+            const insumoDesejado = insumos.find(insumo => insumo.id === pedidoDesejado.id);
+
+            if (!insumoDesejado) {
+                return res.status(404).send('Insumo não encontrado');
+            }
+            console.log(pedidoDesejado.quantidade)
+
+            if (insumoDesejado.estoque >= pedidoDesejado.quantidade) {
+                insumoDesejado.estoque -= pedidoDesejado.quantidade;
+            } else {
+                return res.status(400).send('Estoque insuficiente');
+            }
+
+            // Exclua o pedido
+            // Gera um novo ID
+            const novoId = pedidos.findIndex(pedido => pedido.idPedido === idPedido);
+            console.log(novoId)
+
+            // Adiciona o novo ID ao objeto do novo usuário
+            id = novoId;
+
+            pedidos.splice(id, 1);
+
+            // Escreva os pedidos atualizados de volta no arquivo
+            const novoConteudo1 = JSON.stringify(pedidos, null, 2);
+            fs.writeFile('pedidos.json', novoConteudo1, 'utf8', (err) => {
+                if (err) {
+                    console.error('Erro ao escrever no arquivo:', err);
+                    return res.status(500).send('Erro ao excluir o pedido');
+                }
+
+                // Atualize o estoque do insumo no arquivo 'insumos.json'
+                const novoConteudo2 = JSON.stringify(insumos, null, 2);
+                fs.writeFile('insumos.json', novoConteudo2, 'utf8', (err) => {
+                    if (err) {
+                        console.error('Erro ao escrever no arquivo:', err);
+                        return res.status(500).send('Erro ao atualizar o estoque do insumo');
+                    }
+
+                    return res.status(200).send('Pedido excluído com sucesso e estoque atualizado');
+                });
+            });
+        });
+    });
+});
 
 //rotas para acesso das obras
 
@@ -431,7 +441,7 @@ router.get("/registrodeinsumos", (req, res) => {
             if(err){
                 res.status(500).send('Erro ao buscar o elemento.')
             } else {
-                const elementosEncontrados = elemento.filter(elemento => elemento.idObra ===idDesejado)
+                const elementosEncontrados = elemento.filter(elemento => elemento.idObra === idDesejado)
                 res.send(elementosEncontrados)
             }
         })
