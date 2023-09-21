@@ -2,30 +2,10 @@ const express = require("express")
 const router = express.Router()
 const reading = require('../functions/reading.js')
 const fs = require('fs')
+const bodyParser = require('body-parser')
 
-// Rota para página principal do admin
-
-router.get("/home", (req,res) =>{
-    res.render("admin/home")
-})
-
-// Rota para o BI-Indices do andamento das obras
-
-router.get("/indicesobras", (req,res) =>{
-    res.render("admin/indicesobras")
-})
-
-// Mostras informações completas sobre todos os funcionários
-
-router.get("/quadrodefuncionarios", (req,res) => {
-    res.render("admin/quadrodefuncionarios")
-})
-
-// Rota para cadastro de um novo usuario do sistema
-
-router.get("/novoFuncionario", (req,res) => {
-    res.render("admin/novoFuncionario")
-})
+router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.json());
 
 router.get("/novoFuncionario/:nome/:login/:senha/:salario/:cargo/:idObra", (req, res) => {
     const nome = req.params.nome;
@@ -108,15 +88,10 @@ router.get("/novoFuncionario/:nome/:login/:senha/:salario/:cargo/:idObra", (req,
 });
 
 
-// Rota para adicionar um adm ao sistema
-router.get("/novoAdm", (req,res) => {
-    res.render("admin/novoAdm")
-})
-
-router.get("/novoAdm/:nome/:login/:senha", (req, res) => {
-    const nome = req.params.nome
-    const login = req.params.login
-    const senha = req.params.senha
+router.post("/novoAdm", (req, res) => {
+    const nome = req.body.nome;
+    const login = req.body.login;
+    const senha = req.body.senha;
     let id;
 
     // Verifica se todos os campos obrigatórios estão presentes e não são vazios
@@ -131,34 +106,33 @@ router.get("/novoAdm/:nome/:login/:senha", (req, res) => {
             return res.status(500).send('Erro ao cadastrar novo usuário');
         }
     
-    const usuarios = JSON.parse(data);
+        const usuarios = JSON.parse(data);
 
+        // Gera um novo ID
+        const novoId = usuarios.length > 0 ? Math.max(...usuarios.map(user => user.id)) + 1 : 1;
 
-    // Gera um novo ID
-    const novoId = usuarios.length > 0 ? Math.max(...usuarios.map(user => user.id)) + 1 : 1;
+        // Adiciona o novo ID ao objeto do novo usuário
+        id = novoId;
 
-    // Adiciona o novo ID ao objeto do novo usuário
-    id = novoId;
-
-    // Adição de usuario
-    const novoUsuario = {
-        nome: nome,
-        senha: senha,
-        tipo: "2",
-        id: id
-    }
-
-    usuarios.push(novoUsuario);
-
-    const novoConteudo1 = JSON.stringify(usuarios, null, 2);
-
-    fs.writeFile('usuarios.json', novoConteudo1, 'utf8', (err) => {
-        if (err) {
-            console.error('Erro ao escrever no arquivo:', err);
-            return res.status(500).send('Erro ao cadastrar novo usuário');
+        // Adição de usuario
+        const novoUsuario = {
+            nome: nome,
+            senha: senha,
+            tipo: "2",
+            id: id
         }
-        return res.status(200).send('Novo usuário cadastrado com sucesso com id ' + id);
-    });
+
+        usuarios.push(novoUsuario);
+
+        const novoConteudo1 = JSON.stringify(usuarios, null, 2);
+
+        fs.writeFile('usuarios.json', novoConteudo1, 'utf8', (err) => {
+            if (err) {
+                console.error('Erro ao escrever no arquivo:', err);
+                return res.status(500).send('Erro ao cadastrar novo usuário');
+            }
+            return res.status(200).send('Novo usuário cadastrado com sucesso com id ' + id);
+        });
     });    
 });
 
@@ -239,8 +213,10 @@ router.get("/novofuncionario", (req,res) => {
     res.render("admin/novofuncionario")
 })
 
-router.get("/novofuncionario", (req, res) => {
+router.post("/novofuncionario", (req, res) => {
+    
     const novoFuncionario = req.body;
+
 
     // Verifica se todos os campos obrigatórios estão presentes e não são vazios
     if (!novoFuncionario.nome || !novoFuncionario.cargo || !novoFuncionario.salario) {
@@ -282,7 +258,7 @@ router.get("/novaobra", (req,res) => {
     res.render("admin/novaobra")
 })
 
-router.get("/novaobra1", (req, res) => {
+router.post("/novaobra", (req, res) => {
     
     // Captura o input
     let novaObra = req.body
@@ -325,8 +301,8 @@ router.get("/novaobra1", (req, res) => {
 
 // Rota para deletar uma obra
 
-router.delete('/excluirObra/:id', (req, res) => {
-    const idObraParaExcluir = parseInt(req.body.id); // Assume-se que o nome é único
+router.get('/excluirObra/:id', (req, res) => {
+    const idObraParaExcluir = parseInt(req.params.id); // Assume-se que o nome é único
 
     fs.readFile('obras.json', 'utf8', (err, data) => {
         if (err) {

@@ -1,4 +1,4 @@
-import { IonApp, IonButton, IonCol, IonGrid, IonRow } from "@ionic/react";
+import { IonApp, IonButton, IonCol, IonContent, IonGrid, IonRow } from "@ionic/react";
 import React from "react";
 import { useHistory } from "react-router";
 
@@ -11,13 +11,11 @@ const Logout: React.FC = () => {
 
     return(
     <IonApp>
-        <IonGrid>
-            <IonCol>
-                <IonRow>
-                    <IonButton  onClick={Sair}>Encerrar sessão</IonButton>
-                </IonRow>
-            </IonCol>
-        </IonGrid>
+        <IonContent>
+         <div style={{ position: "absolute", bottom: "10px", right: "10px" }}>
+            <IonButton  onClick={Sair}>Encerrar sessão</IonButton>
+        </div>
+        </IonContent>
     </IonApp>
     )
 }
