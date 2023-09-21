@@ -1,256 +1,256 @@
 [
-    {
-    "id": 1,
-    "obra": "Prédio A",
-    "funcionarios": 100,
-    "andamentoObra":
-     [
-          {
-            "etapa": 1,
-            "evento": "Preparação do Terreno",
-            "estimativaConclusao": 5,
-            "tempoConclusao": 7
-          },
-          {
-            "etapa": 2,
-            "evento": "Fundação",
-            "estimativaConclusao": 4,
-            "tempoConclusao": 5
-          },
-          {
-            "etapa": 3,
-            "evento": "Estrutura",
-            "estimativaConclusao": 3,
-            "tempoConclusao": 5
-          },
-          {
-            "etapa": 4,
-            "evento": "Alvenaria e Revestimento",
-            "estimativaConclusao": 4,
-            "tempoConclusao": 2
-          },
-          {
-            "etapa": 5,
-            "evento": "Instalações Elétricas e Hidráulicas",
-            "estimativaConclusao": 5,
-            "tempoConclusao": 4
-          },
-          {
-            "etapa": 6,
-            "evento": "Acabamento Interno",
-            "estimativaConclusao": 4,
-            "tempoConclusao": 6
-          },
-          {
-            "etapa": 7,
-            "evento": "Paisagismo e Áreas Comuns",
-            "estimativaConclusao": 3,
-            "tempoConclusao": 2
-          },
-          {
-            "etapa": 8,
-            "evento": "Inspeção e Certificação",
-            "estimativaConclusao": 2,
-            "tempoConclusao": 0
-          },
-          {
-            "etapa": 9,
-            "evento": "Entrega do Edifício",
-            "estimativaConclusao": 0.5,
-            "tempoConclusao": 0
-          }
-      ]
-      ,
-    "localizacao": "Rosarinho"
-    },
-    {
-    "id": 2, 
-    "obra": "Ponte B",
-    "funcionarios": 60,
-    "andamentoObra" :
-    [
-          {
-            "etapa": 1,
-            "evento": "Preparação do Terreno",
-            "estimativaConclusao": 6,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 2,
-            "evento": "Fundação",
-            "estimativaConclusao": 5,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 3,
-            "evento": "Estrutura",
-            "estimativaConclusao": 4,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 4,
-            "evento": "Alvenaria e Revestimento",
-            "estimativaConclusao": 5,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 5,
-            "evento": "Instalações Elétricas e Hidráulicas",
-            "estimativaConclusao": 6,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 6,
-            "evento": "Acabamento Interno",
-            "estimativaConclusao": 5,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 7,
-            "evento": "Paisagismo e Áreas Comuns",
-            "estimativaConclusao": 4,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 8,
-            "evento": "Inspeção e Certificação",
-            "estimativaConclusao": 3,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 9,
-            "evento": "Entrega do Edifício",
-            "estimativaConclusao": 1,
-            "tempoConclusao": ""
-          }
+  {
+  "id": 1,
+  "obra": "Prédio A",
+  "funcionarios": 100,
+  "andamentoObra":
+   [
+        {
+          "etapa": 1,
+          "evento": "Preparação do Terreno",
+          "estimativaConclusao": 5,
+          "tempoConclusao": 7
+        },
+        {
+          "etapa": 2,
+          "evento": "Fundação",
+          "estimativaConclusao": 4,
+          "tempoConclusao": 5
+        },
+        {
+          "etapa": 3,
+          "evento": "Estrutura",
+          "estimativaConclusao": 3,
+          "tempoConclusao": 5
+        },
+        {
+          "etapa": 4,
+          "evento": "Alvenaria e Revestimento",
+          "estimativaConclusao": 4,
+          "tempoConclusao": 2
+        },
+        {
+          "etapa": 5,
+          "evento": "Instalações Elétricas e Hidráulicas",
+          "estimativaConclusao": 5,
+          "tempoConclusao": 4
+        },
+        {
+          "etapa": 6,
+          "evento": "Acabamento Interno",
+          "estimativaConclusao": 4,
+          "tempoConclusao": 6
+        },
+        {
+          "etapa": 7,
+          "evento": "Paisagismo e Áreas Comuns",
+          "estimativaConclusao": 3,
+          "tempoConclusao": 2
+        },
+        {
+          "etapa": 8,
+          "evento": "Inspeção e Certificação",
+          "estimativaConclusao": 2,
+          "tempoConclusao": 0
+        },
+        {
+          "etapa": 9,
+          "evento": "Entrega do Edifício",
+          "estimativaConclusao": 0.5,
+          "tempoConclusao": 0
+        }
     ]
     ,
-    "localizacao": "Boa Vista"
-    },
-    {
-    "id": 3, 
-    "obra": "Empresarial C",
-    "funcionarios": 80,
-    "andamentoObra" :
-    [
-          {
-            "etapa": 1,
-            "evento": "Preparação do Terreno",
-            "estimativaConclusao": 6,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 2,
-            "evento": "Fundação",
-            "estimativaConclusao": 5,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 3,
-            "evento": "Estrutura",
-            "estimativaConclusao": 4,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 4,
-            "evento": "Alvenaria e Revestimento",
-            "estimativaConclusao": 5,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 5,
-            "evento": "Instalações Elétricas e Hidráulicas",
-            "estimativaConclusao": 6,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 6,
-            "evento": "Acabamento Interno",
-            "estimativaConclusao": 5,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 7,
-            "evento": "Paisagismo e Áreas Comuns",
-            "estimativaConclusao": 4,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 8,
-            "evento": "Inspeção e Certificação",
-            "estimativaConclusao": 3,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 9,
-            "evento": "Entrega do Edifício",
-            "estimativaConclusao": 1,
-            "tempoConclusao": ""
-          }
-    ],
-    "localizacao": "Boa Viagem"
-    },
-    {
-    "id": 4, 
-    "obra": "Residencia D",
-    "funcionarios": 40,
-    "andamentoObra" :
-    [
-          {
-            "etapa": 1,
-            "evento": "Preparação do Terreno",
-            "estimativaConclusao": 6,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 2,
-            "evento": "Fundação",
-            "estimativaConclusao": 5,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 3,
-            "evento": "Estrutura",
-            "estimativaConclusao": 4,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 4,
-            "evento": "Alvenaria e Revestimento",
-            "estimativaConclusao": 5,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 5,
-            "evento": "Instalações Elétricas e Hidráulicas",
-            "estimativaConclusao": 6,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 6,
-            "evento": "Acabamento Interno",
-            "estimativaConclusao": 5,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 7,
-            "evento": "Paisagismo e Áreas Comuns",
-            "estimativaConclusao": 4,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 8,
-            "evento": "Inspeção e Certificação",
-            "estimativaConclusao": 3,
-            "tempoConclusao": ""
-          },
-          {
-            "etapa": 9,
-            "evento": "Entrega do Edifício",
-            "estimativaConclusao": 1,
-            "tempoConclusao": ""
-          }
-    ],
-    "localizacao": "Caruaru"
-    }    
+  "localizacao": "Rosarinho"
+  },
+  {
+  "id": 2, 
+  "obra": "Ponte B",
+  "funcionarios": 60,
+  "andamentoObra" :
+  [
+        {
+          "etapa": 1,
+          "evento": "Preparação do Terreno",
+          "estimativaConclusao": 6,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 2,
+          "evento": "Fundação",
+          "estimativaConclusao": 5,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 3,
+          "evento": "Estrutura",
+          "estimativaConclusao": 4,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 4,
+          "evento": "Alvenaria e Revestimento",
+          "estimativaConclusao": 5,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 5,
+          "evento": "Instalações Elétricas e Hidráulicas",
+          "estimativaConclusao": 6,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 6,
+          "evento": "Acabamento Interno",
+          "estimativaConclusao": 5,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 7,
+          "evento": "Paisagismo e Áreas Comuns",
+          "estimativaConclusao": 4,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 8,
+          "evento": "Inspeção e Certificação",
+          "estimativaConclusao": 3,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 9,
+          "evento": "Entrega do Edifício",
+          "estimativaConclusao": 1,
+          "tempoConclusao": ""
+        }
+  ]
+  ,
+  "localizacao": "Boa Vista"
+  },
+  {
+  "id": 3, 
+  "obra": "Empresarial C",
+  "funcionarios": 80,
+  "andamentoObra" :
+  [
+        {
+          "etapa": 1,
+          "evento": "Preparação do Terreno",
+          "estimativaConclusao": 6,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 2,
+          "evento": "Fundação",
+          "estimativaConclusao": 5,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 3,
+          "evento": "Estrutura",
+          "estimativaConclusao": 4,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 4,
+          "evento": "Alvenaria e Revestimento",
+          "estimativaConclusao": 5,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 5,
+          "evento": "Instalações Elétricas e Hidráulicas",
+          "estimativaConclusao": 6,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 6,
+          "evento": "Acabamento Interno",
+          "estimativaConclusao": 5,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 7,
+          "evento": "Paisagismo e Áreas Comuns",
+          "estimativaConclusao": 4,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 8,
+          "evento": "Inspeção e Certificação",
+          "estimativaConclusao": 3,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 9,
+          "evento": "Entrega do Edifício",
+          "estimativaConclusao": 1,
+          "tempoConclusao": ""
+        }
+  ],
+  "localizacao": "Boa Viagem"
+  },
+  {
+  "id": 4, 
+  "obra": "Residencia D",
+  "funcionarios": 40,
+  "andamentoObra" :
+  [
+        {
+          "etapa": 1,
+          "evento": "Preparação do Terreno",
+          "estimativaConclusao": 6,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 2,
+          "evento": "Fundação",
+          "estimativaConclusao": 5,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 3,
+          "evento": "Estrutura",
+          "estimativaConclusao": 4,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 4,
+          "evento": "Alvenaria e Revestimento",
+          "estimativaConclusao": 5,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 5,
+          "evento": "Instalações Elétricas e Hidráulicas",
+          "estimativaConclusao": 6,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 6,
+          "evento": "Acabamento Interno",
+          "estimativaConclusao": 5,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 7,
+          "evento": "Paisagismo e Áreas Comuns",
+          "estimativaConclusao": 4,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 8,
+          "evento": "Inspeção e Certificação",
+          "estimativaConclusao": 3,
+          "tempoConclusao": ""
+        },
+        {
+          "etapa": 9,
+          "evento": "Entrega do Edifício",
+          "estimativaConclusao": 1,
+          "tempoConclusao": ""
+        }
+  ],
+  "localizacao": "Caruaru"
+  }    
 ]  

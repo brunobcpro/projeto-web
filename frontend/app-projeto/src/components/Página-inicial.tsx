@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import Tab from './Tab-componente';
 import axios from 'axios'; 
+import Logout from './Logout';
 
 const Start: React.FC = () => {
   const location = useLocation();
@@ -102,6 +103,7 @@ const Start: React.FC = () => {
             <IonRow>
               <IonButton onClick={handleRegistroFunc}>Registrar funcionário</IonButton>
               <IonButton onClick={redirectExlcuir}>Excluir usuários</IonButton>
+              <Logout />
             </IonRow>
           </IonCol>
         </IonGrid>

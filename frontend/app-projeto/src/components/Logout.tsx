@@ -10,13 +10,8 @@ const Logout: React.FC = () => {
     }
 
     return(
-    <IonApp>
-        <IonContent>
-         <div style={{ position: "absolute", bottom: "10px", right: "10px" }}>
+        
             <IonButton  onClick={Sair}>Encerrar sessão</IonButton>
-        </div>
-        </IonContent>
-    </IonApp>
     )
 }
 export default Logout

@@ -3,7 +3,10 @@ const router = express.Router()
 const reading = require('../functions/reading.js')
 const fs = require('fs');
 const { parse } = require("path");
+const bodyParser = require('body-parser')
 
+router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.json());
 
 router.post("/novoFuncionario", (req, res) => {
     const nome = req.body.nome;
@@ -281,7 +284,7 @@ router.delete('/excluirObra/:id', (req, res) => {
     });
 })
 
-router.get("/pedidos", (req, res) => {
+router.post("/pedidos", (req, res) => {
     fs.readFile('pedidos.json', 'utf8', (err, data) => {
         if (err) {
             console.error('Erro ao ler o arquivo:', err);
