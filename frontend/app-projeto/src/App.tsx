@@ -29,6 +29,7 @@ import AdmObras from './pages/AdmObras';
 import AdmInsumos from './pages/AdmInsumos';
 import FuncionarioInsumos from './pages/FuncionarioInsumos';
 import ChangePass from './pages/MudarSenha';
+import Excluir from './pages/Excluir';
 
 setupIonicReact();
 
@@ -64,6 +65,7 @@ const App: React.FC = () => (
           <ChangePass />
         </Route>
         <Route exact path="/adm/excluir">
+        <Excluir />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

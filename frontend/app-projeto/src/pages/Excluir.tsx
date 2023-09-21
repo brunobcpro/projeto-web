@@ -8,7 +8,7 @@ const Excluir: React.FC = () => {
     return (
     <IonApp>
         <IonContent>
-        <CompExcluir   />
+        <CompExcluir/ >
         </IonContent>
       </IonApp>
       
@@ -16,4 +16,4 @@ const Excluir: React.FC = () => {
     );
   };
   
-  export default Excluir;
+  export default Excluir

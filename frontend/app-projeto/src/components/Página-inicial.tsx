@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import Tab from './Tab-componente';
 import axios from 'axios'; 
-import Logout from './Logout';
 
 const Start: React.FC = () => {
   const location = useLocation();
@@ -105,16 +104,9 @@ const Start: React.FC = () => {
               <IonInput type='text' placeholder='Salário do funcionário' value={salario} onIonChange={(e) => setSalario(e.detail.value!)}></IonInput>
               <IonInput type='text' placeholder='Id da obra do funcionário' value={idObra} onIonChange={(e) => setIdObra(e.detail.value!)}></IonInput>
               <IonButton onClick={handleRegistroFunc}>Registrar funcionário</IonButton>
-<<<<<<< Updated upstream
-              <IonButton onClick={redirectExlcuir}>Excluir usuários</IonButton>
-              <Logout />
-            </IonRow>
-          </IonCol>
-=======
               <IonButton onClick={redirectExcluir}>Excluir usuários</IonButton>
             </IonCol>
           </IonRow>
->>>>>>> Stashed changes
         </IonGrid>
       </IonContent>
       <Tab />
