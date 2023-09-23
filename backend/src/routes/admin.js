@@ -1,3 +1,5 @@
+
+// Importações
 const express = require("express")
 const router = express.Router()
 const reading = require('../functions/reading.js')
@@ -7,6 +9,8 @@ const bodyParser = require('body-parser')
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
+
+// Rota para novo funcionário:
 
 router.post("/novoFuncionario", (req, res) => {
     const nome = req.body.nome;
@@ -88,6 +92,9 @@ router.post("/novoFuncionario", (req, res) => {
     });
 });
 
+
+// Rota para novo Adm:
+
 router.post("/novoAdm", (req, res) => {
     const nome = req.body.nome
     const login = req.body.login
@@ -137,7 +144,7 @@ router.post("/novoAdm", (req, res) => {
     });    
 });
 
-// Rota para excluir um usuário do sistema
+// Rota para excluir um usuário do sistema:
 
 router.delete('/excluirusuario/:id', (req, res) => {
     const idUsuarioParaExcluir = parseInt(req.body.id);
@@ -207,7 +214,7 @@ router.delete('/excluirusuario/:id', (req, res) => {
 });
 
 
-// Rota para cadastro de uma nova obra 
+// Rota para cadastro de uma nova obra:
 
 router.post("/novaobra", (req, res) => {
     
@@ -249,7 +256,7 @@ router.post("/novaobra", (req, res) => {
     });
 });
 
-// Rota para deletar uma obra
+// Rota para deletar uma obra:
 
 router.delete('/excluirObra/:id', (req, res) => {
     const idObraParaExcluir = parseInt(req.body.id); // Assume-se que o nome é único
@@ -284,6 +291,8 @@ router.delete('/excluirObra/:id', (req, res) => {
     });
 })
 
+// Rota dos pedidos:
+
 router.post("/pedidos", (req, res) => {
     fs.readFile('pedidos.json', 'utf8', (err, data) => {
         if (err) {
@@ -296,6 +305,7 @@ router.post("/pedidos", (req, res) => {
     });
 });
 
+// Rota para fornecimento de insumos:
 
 router.delete("/fornerceInsumos/:idPedido", (req, res) => {
     const idPedido = parseInt(req.body.idPedido);
@@ -366,7 +376,7 @@ router.delete("/fornerceInsumos/:idPedido", (req, res) => {
     });
 });
 
-//rotas para acesso das obras
+// Rotas para acesso das obras:
 
     //rota para acessar todas as obras
     router.get('/obras', (req, res) => {
@@ -450,7 +460,7 @@ router.delete("/fornerceInsumos/:idPedido", (req, res) => {
         })
     })
 
-//rotas para acesso dos insumos
+// rotas para acesso dos insumos:
     
     //rota para acessar os insumos
     router.get('/insumos', (req, res) => {
@@ -476,7 +486,7 @@ router.delete("/fornerceInsumos/:idPedido", (req, res) => {
         });
     });
 
-//rotas para acesso dos funcionarios
+// Rotas para acesso dos funcionarios:
 
     //rota para acesso de todos os funcionarios
     router.get('/funcionarios', (req, res) => {

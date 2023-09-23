@@ -1,13 +1,19 @@
+
+// Importações
+
 const express = require("express")
 const router = express.Router()
 const fs = require('fs');
 const reading = require('../functions/reading.js')
 
+
+// Rota obras em andamento
+
 router.get("/obrasEmAndamento", (req,res) => {
     res.send([])
 })
 
-//rotas acesso aos dados funcionarios
+// Rotas acesso aos dados funcionarios:
 
     //dados gerais funcionarios
     router.get('/informacoesPessoais/:id', (req, res) => {
