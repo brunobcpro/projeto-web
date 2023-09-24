@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IonButton, IonContent } from "@ionic/react";
+import { IonAlert, IonButton, IonContent } from "@ionic/react";
 import axios from "axios";
 
 interface Pedidos {
@@ -12,8 +12,9 @@ interface Pedidos {
   const CompPedidos: React.FC<Pedidos> = () => {
   
     const [pedido, setPedidos] = useState<Pedidos[]>([]);
-    const [pedidoAtendido, setPedidoAtendido] = useState<Pedidos | null>(null)
-    const [idPedido, setIdPedidos] = useState('');
+    const [pedidoAtendido, setPedidoAtendido] = useState<Pedidos | null>(null);
+    const [alertAtendido, setAlertAtendido] = useState(false);
+    const [alertFalha, setAlertFalha] = useState(false);
   
     useEffect(() => {
         const loadDados = async() => {
@@ -38,11 +39,14 @@ interface Pedidos {
             const updatedPedidos = pedido.filter((pedidos) => pedidos.idPedido !== idPedido);
             setPedidos(updatedPedidos);
             setPedidoAtendido(pedido.find((pedidos) => pedidos.idPedido === idPedido) || null);
+            setAlertAtendido(true);
+
 
 
 
         } catch (error) {
 
+            setAlertFalha(true)
             console.log('Falha em atender à demanda', error);
         }
       }
@@ -74,6 +78,21 @@ interface Pedidos {
             </tbody>
           </table>
         </div>
+        <IonAlert 
+                isOpen={alertAtendido}
+                onDidDismiss={() => setAlertAtendido(false)}
+                header="Pedido atendido com sucesso" 
+                message={`Pedido de id ${pedidoAtendido?.idPedido} atendido.`}
+                buttons={["OK"]} />
+
+        
+        <IonAlert
+                isOpen={alertFalha}
+                onDidDismiss={() => setAlertFalha(false)}
+                header="Falha em atender pedido"
+                message="Verifique se há recurso suficiente e tente novamente"
+                buttons={["OK"]} />
+                
         </IonContent>
     )
   }

@@ -1,5 +1,12 @@
 [
   {
+    "id":1,
+    "nome": "Guilherme",
+    "cargo": "Carpinteiro",
+    "idObra": 1,
+    "salario": "R$ 6000,00"
+  },
+  {
     "id": 2,
     "nome": "Alysson",
     "cargo": "Mestre de obras",

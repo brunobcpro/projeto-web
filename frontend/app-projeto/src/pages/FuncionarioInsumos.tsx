@@ -1,4 +1,4 @@
-import { IonApp, IonButton, IonInput, IonLabel } from "@ionic/react";
+import { IonAlert, IonApp, IonButton, IonInput, IonLabel } from "@ionic/react";
 import React, { useState } from "react";
 import Tab from "../components/Tab-componente";
 import axios from "axios";
@@ -9,6 +9,8 @@ const FuncionarioInsumos: React.FC = () => {
 const [id, setId] = useState('');
 const [quantidade, setQuantidade] = useState('');
 const [obra, setObra] = useState('');
+const [alertPedido, setAlertPedido] = useState(false)
+
 
 const handleSolicitação = async () => {
     
@@ -21,6 +23,7 @@ const handleSolicitação = async () => {
                 setId('');
                 setObra('');
                 setQuantidade('');
+                setAlertPedido(true);
 
             } else {
 
@@ -42,6 +45,12 @@ const handleSolicitação = async () => {
                 <IonInput type="text" placeholder="Quantidade desejada" value={quantidade} onIonChange={(e) => setQuantidade(e.detail.value!)}></IonInput>
                 <IonInput type="text" placeholder="Id da obra solicitadora" value={obra} onIonChange={(e) => setObra(e.detail.value!)}></IonInput>
                 <IonButton onClick={handleSolicitação}>Solicitar</IonButton>
+                <IonAlert 
+                        isOpen={alertPedido}
+                        onDidDismiss={() => setAlertPedido(false)}
+                        header="Pedido enviado com sucesso"
+                        message="Aguarde uma resposta dos administradores"
+                        buttons={["OK"]} />
                 
                 <Tab />
         </IonApp>
