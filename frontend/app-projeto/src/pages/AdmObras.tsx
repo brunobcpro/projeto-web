@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
-import { IonContent, IonHeader, IonApp, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonInput, IonButton } from '@ionic/react';
-import axios from 'axios';
+import React from 'react';
+import { IonContent, IonApp} from '@ionic/react';
 import Tab from '../components/Tab-componente';
 import CompObras from '../components/CompObras';
 

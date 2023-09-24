@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IonAlert, IonButton, IonContent, IonHeader, IonTitle, IonToolbar, IonApp } from '@ionic/react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { IonAlert, IonButton, IonContent, IonApp } from '@ionic/react';
 import Tab from "./Tab-componente";
 import axios from 'axios';
 
@@ -30,7 +29,8 @@ interface Usuario {
   
     const handleExcluirUsuario = async (id: number) => {
         try {
-          await axios.delete(`http://localhost:3000/admin/excluirusuario/${id}`);
+          await axios.delete(`http://localhost:3000/admin/excluirUsuario/${id}`)
+
           const updatedUsuarios = usuarios.filter((usuario) => usuario.id !== id);
           setUsuarios(updatedUsuarios);
           setUsuarioExcluido(usuarios.find((usuario) => usuario.id === id) || null);

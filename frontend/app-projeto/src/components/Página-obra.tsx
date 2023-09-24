@@ -1,7 +1,6 @@
-import { IonApp, IonHeader, IonIcon, IonLabel, IonTabBar, IonTabButton, IonTitle, IonToolbar } from '@ionic/react';
+import { IonApp, IonHeader, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
-import { Redirect, useHistory, useLocation } from 'react-router-dom';
-import {homeOutline, constructOutline, statsChartOutline} from 'ionicons/icons'
+import { useLocation } from 'react-router-dom';
 import Tab from './Tab-componente';
 
 const Obras: React.FC = () => {

@@ -1,4 +1,4 @@
-import { IonApp, IonContent, IonHeader, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel } from "@ionic/react";
+import { IonApp, IonContent, IonSegment, IonSegmentButton, IonLabel } from "@ionic/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";

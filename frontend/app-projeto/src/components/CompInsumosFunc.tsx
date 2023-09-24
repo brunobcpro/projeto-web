@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { IonApp, IonContent } from "@ionic/react";
 import Tab from "./Tab-componente";
 import axios from "axios";
-import CompPedidos from "./CompPedidos";
 
 interface Insumos {
   nome: string;
@@ -11,7 +10,7 @@ interface Insumos {
   id: number;
 }
 
-const CompInsumosAdm: React.FC<Insumos> = () => {
+const CompInsumosFunc: React.FC<Insumos> = () => {
     const [insumo, setInsumo] = useState<Insumos[]>([]);
   
     useEffect(() => {
@@ -25,7 +24,7 @@ const CompInsumosAdm: React.FC<Insumos> = () => {
       };
       loadData();
     }, []);
-
+  
     return (
       <IonApp>
         <IonContent className="ion-text-center">
@@ -50,11 +49,10 @@ const CompInsumosAdm: React.FC<Insumos> = () => {
               </tbody>
             </table>
           </div>
-          <CompPedidos id={0} quantidade={0} obra={""} idPedido={0} />
         </IonContent>
         <Tab />
       </IonApp>
     );
   };
 
-export default CompInsumosAdm
+export default CompInsumosFunc

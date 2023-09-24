@@ -47,10 +47,10 @@ router.get("/obrasEmAndamento", (req,res) => {
         });
       });
 
-    router.get('/solicitar/:id/:quantidade/:obra/', (req,res) => {
-        const id = parseInt(req.params.id)
-        const quantidade = req.params.quantidade
-        const obra = req.params.obra
+    router.post('/solicitar/:id/:quantidade/:obra/', (req,res) => {
+        const id = parseInt(req.params.id);
+        const quantidade = parseInt(req.params.quantidade);
+        const obra = req.params.obra;
 
         if (!id || !quantidade || !obra ) {
           return res.status(400).send('Todos os campos são obrigatórios');

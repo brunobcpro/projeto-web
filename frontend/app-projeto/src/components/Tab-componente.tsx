@@ -1,4 +1,4 @@
-import { IonApp, IonHeader, IonIcon, IonLabel, IonTabBar, IonTabButton, IonTitle, IonToolbar } from '@ionic/react';
+import { IonIcon, IonLabel, IonTabBar, IonTabButton } from '@ionic/react';
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import {homeOutline, constructOutline, statsChartOutline, logOutOutline} from 'ionicons/icons'

@@ -1,4 +1,4 @@
-import { IonApp, IonButton, IonCol, IonContent, IonGrid, IonRow } from "@ionic/react";
+import { IonButton } from "@ionic/react";
 import React from "react";
 import { useHistory } from "react-router";
 

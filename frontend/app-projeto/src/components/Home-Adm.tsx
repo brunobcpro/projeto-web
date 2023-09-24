@@ -1,5 +1,5 @@
 import { IonAlert, IonApp, IonButton, IonCol, IonContent, IonGrid, IonHeader, IonInput, IonRow, IonTitle, IonToolbar } from '@ionic/react';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import Tab from './Tab-componente';
 import axios from 'axios'; 

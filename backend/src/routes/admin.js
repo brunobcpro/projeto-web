@@ -293,7 +293,7 @@ router.delete('/excluirObra/:id', (req, res) => {
 
 // Rota dos pedidos:
 
-router.post("/pedidos", (req, res) => {
+router.get("/pedidos", (req, res) => {
     fs.readFile('pedidos.json', 'utf8', (err, data) => {
         if (err) {
             console.error('Erro ao ler o arquivo:', err);
@@ -307,8 +307,8 @@ router.post("/pedidos", (req, res) => {
 
 // Rota para fornecimento de insumos:
 
-router.delete("/fornerceInsumos/:idPedido", (req, res) => {
-    const idPedido = parseInt(req.body.idPedido);
+router.delete("/fornecerInsumos/:idPedido", (req, res) => {
+    const idPedido = parseInt(req.params.idPedido);
 
     fs.readFile('pedidos.json', 'utf8', (err, data) => {
         if (err) {
