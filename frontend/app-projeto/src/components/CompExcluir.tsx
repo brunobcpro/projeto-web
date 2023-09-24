@@ -30,7 +30,7 @@ interface Usuario {
   
     const handleExcluirUsuario = async (id: number) => {
         try {
-          await axios.delete(`http://localhost:3000/admin/excluirusuario`), { id };
+          await axios.delete(`http://localhost:3000/admin/excluirusuario/${id}`);
           const updatedUsuarios = usuarios.filter((usuario) => usuario.id !== id);
           setUsuarios(updatedUsuarios);
           setUsuarioExcluido(usuarios.find((usuario) => usuario.id === id) || null);

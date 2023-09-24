@@ -1,12 +1,5 @@
 [
   {
-    "id": 1,
-    "nome": "Guilherme",
-    "cargo": "Engenheiro Elétrico",
-    "salario": "R$ 8000,00",
-    "idObra": 1
-  },
-  {
     "id": 2,
     "nome": "Alysson",
     "cargo": "Mestre de obras",

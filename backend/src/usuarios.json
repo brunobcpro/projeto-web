@@ -36,9 +36,9 @@
     "tipo": "1"
   },
   {
-  "id": 7,
-  "nome": "Marcus",
-  "senha": "777777",
-  "tipo": "2"
+    "id": 7,
+    "nome": "Marcus",
+    "senha": "777777",
+    "tipo": "2"
   }
 ]

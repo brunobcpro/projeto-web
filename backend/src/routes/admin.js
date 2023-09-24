@@ -18,7 +18,7 @@ router.post("/novoFuncionario", (req, res) => {
     const senha = req.body.senha;
     const salario = req.body.salario;
     const cargo = req.body.cargo;
-    const idObra = parseInt(req.body.idObra);
+    const idObra = req.body.idObra;
     let id;
 
     // Verifica se todos os campos obrigatórios estão presentes e não são vazios
@@ -45,7 +45,7 @@ router.post("/novoFuncionario", (req, res) => {
         const novoUsuario = {
             nome: nome,
             senha: senha,
-            tipo: "1",
+            tipo: "2",
             id: id
         }
 
@@ -126,7 +126,7 @@ router.post("/novoAdm", (req, res) => {
     const novoUsuario = {
         nome: nome,
         senha: senha,
-        tipo: "2",
+        tipo: "1",
         id: id
     }
 
@@ -146,8 +146,8 @@ router.post("/novoAdm", (req, res) => {
 
 // Rota para excluir um usuário do sistema:
 
-router.delete('/excluirusuario/:id', (req, res) => {
-    const idUsuarioParaExcluir = parseInt(req.body.id);
+router.delete('/excluirUsuario/:id', (req, res) => {
+    const idUsuarioParaExcluir = parseInt(req.params.id);
 
     fs.readFile('usuarios.json', 'utf8', (err, data) => {
         if (err) {
@@ -177,7 +177,7 @@ router.delete('/excluirusuario/:id', (req, res) => {
                 return res.status(500).send('Erro ao excluir o usuário');
             }
 
-            if (tipoUsuarioParaExcluir === "1") {
+            if (tipoUsuarioParaExcluir === "2") {
                 //excluir funcionario
 
                 fs.readFile('funcionarios.json', 'utf8', (err, elemento) => {
