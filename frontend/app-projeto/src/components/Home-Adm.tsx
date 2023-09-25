@@ -48,13 +48,16 @@ const StartAdm: React.FC = () => {
 
   const handleRegistroFunc = async () => {
     try {
+
+      const obraId = parseInt(idObra, 10)
+
       const resposta = await axios.post('http://localhost:3000/admin/novoFuncionario', {
         nome: nomeFunc,
         login: loginFunc,
         senha: senhaFunc,
         salario,
         cargo,
-        idObra
+        idObra: obraId
       });
 
       if (resposta.status === 200) {
