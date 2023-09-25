@@ -11,7 +11,7 @@
     "senha": "444444",
     "tipo": "2"
   },
-  {
+{
     "id": 3,
     "nome": "Caio",
     "senha": "666666",
@@ -28,17 +28,11 @@
     "nome": "Bruno",
     "senha": "12345",
     "tipo": "1"
-  },
+},
   {
     "id": 6,
     "nome": "Vinicius",
     "senha": "222222",
     "tipo": "1"
-  },
-  {
-    "id": 7,
-    "nome": "Marcus",
-    "senha": "777777",
-    "tipo": "2"
   }
 ]
